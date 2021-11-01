@@ -32,13 +32,18 @@
     box-shadow: 2px 5px grey;
     z-index: 99;
 }
+
 .main{
     height:140px;
     border-top-left-radius: 35px;
     border-top-right-radius: 35px;
     
     position:relative;
-    background-image: url(../img/hero.jpg);
+    
+    background-image: url(https://i.ibb.co/RBLY65f/beach-g9a5740bbe-1920.jpg);
+    background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;
 }
 .top_background {
     
@@ -284,6 +289,18 @@ label {
     line-height: 2;
     cursor: pointer;
 }
+
+.tiny {
+    position: relative;
+    margin-right: 1em;
+    padding-left: 2em;
+    padding-right: 1em;
+    line-height: 1;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+
 label:before {
     box-sizing: border-box;
     content: " ";
@@ -291,8 +308,8 @@ label:before {
     top: 0.3em;
     left: 0;
     display: block;
-    width: 1.4em;
-    height: 1.4em;
+    width: 1.5em;
+    height: 1.5em;
     border: 2px solid #0072bc;
     border-radius: 0.25em;
     z-index: -1;
@@ -322,10 +339,10 @@ label, label::before {
 </style>
 
 <div class="container-fluid px-1 px-md-4 py-5 mx-auto" >
-	<div class="row d-flex justify-content-center " >
+	<div class="row d-flex  " >
 		
 		<div class="col-12 col-md-11 col-lg-10 col-xl-9  ">
-			<div class ='main'>
+			<div class ='main' >
 
 			</div>
 			<div class="card card0 border-0  sec">
@@ -385,8 +402,10 @@ label, label::before {
 											<h1>When would you like to travel?</h1>
 							
 											<!-- <div class="form-group mt-1 mb-1"> <input type="password" id="pwd" class="form-control" required> <label class="ml-3 form-control-placeholder" for="pwd">Password</label> </div> -->
-											<input class='form-group mt-1 mb-1' type="date" data-date-inline-picker="true"  style= 'margin-right:50px; padding:30px 30px; margin-top:50px  !important;  margin-bottom:100px !important; width:400px !important' /> 
-											<input class='form-group mt-1 mb-1' type="date" data-date-inline-picker="true"  style= 'margin-right:50px; padding:30px 30px; margin-top:50px  !important; margin-bottom:100px !important; width:400px !important' /> 
+                                            <h5  style = 'margin-top: 50px; '> Start Date </h5>
+											<input class='form-group mt-1 mb-1' type="date" data-date-inline-picker="true"  style= 'margin-right:50px; padding:30px 30px;  margin-bottom:50px !important; width:400px !important' /> 
+                                            <h5  style = 'margin-top: 20px; '> End Date </h5>
+                                            <input class='form-group mt-1 mb-1' type="date" data-date-inline-picker="true"  style= 'margin-right:50px; padding:30px 30px; margin-top:10px  !important; margin-bottom:50px !important; width:400px !important' /> 
 											<div class="next-button text-center mt-1 ml-2" style='float:right'> <span class="fa fa-arrow-right"></span> </div>
 										</div>
 										<div class="row mt-3 mb-5">
@@ -417,10 +436,10 @@ label, label::before {
 													<label for="rb6">Anniversary</label>
 													<input type="radio" name="rb" id="rb7" />
 													<label for="rb7">Honeymoon</label>
-													<input type="radio" name="rb" id="rb8" />
+													<!-- <input type="radio" name="rb" id="rb8" />
 													<label for="rb8">Family Vacation</label>
 													<input type="radio" name="rb" id="rb9" />
-													<label for="rb9">Other</label>
+													<label for="rb9">Other</label> -->
 												  </div>
 												
 											</div>
@@ -434,6 +453,7 @@ label, label::before {
 												<div class="select mb-3">
 													<div class='group'>
 														<button type="button" class="decrement-btn" style='
+                                                        color: #222;
 														width:100px;
 														margin-left:30px;
 														background: none;
@@ -449,6 +469,7 @@ label, label::before {
 														color: black'/>
 														<span style='font-size: 22px;font-weight:500'> Adults</span>
 														<button type="button" class="increment-btn" style='
+                                                        color: #222;
 														width:100px;
 														margin-left:30px;
 														background: none;
@@ -457,6 +478,7 @@ label, label::before {
 													</div>
 													<div class="group">
 													<button type="button" class="decrement-btn1" style='
+                                                    color: #222;
 													width:100px;
 													margin-left:30px;
 													background: none;
@@ -472,6 +494,7 @@ label, label::before {
 													color: black'/>
 													<span style='font-size: 22px;font-weight:500'> Children</span>
 													<button type="button" class="increment-btn1" style='
+                                                    color: #222;
 													width:100px;
 													margin-left:30px;
 													background: none;
@@ -500,9 +523,9 @@ label, label::before {
 														<input type="radio" name="rbv" id="rbv4" />
 														<label for="rbv4">$7500</label>
 														<input type="radio" name="rbv" id="rbv5" />
-														<label for="rbv5">$10000</label>
+														<label for="rbv5">$8000</label>
 														<input type="radio" name="rbv" id="rbv6" />
-														<label for="rbv6">$12500</label>
+														<label for="rbv6">$9900</label>
 														<input type="radio" name="rbv" id="rbv7" />
 													  </div> </div>
 											</div>
@@ -512,39 +535,62 @@ label, label::before {
 									<div class="card2 ml-2">
 										<div class="row px-3 mt-3">
 											<h1>What do you want to do there?</h1>
+
+                                            <span> Please select atleast 5</span>
 											<div class="form-group mt-3 mb-4 " >
 												<div class="group">
-													<input type="checkbox" name="cb" id="cb1" />
-													<label for="cb1">Must See Attractions</label>
+													<input type="checkbox" name="cb" id="cb10" />
+													<label class = 'tiny'  for="cb10">Private and Custom Tours</label>
 													<input type="checkbox" name="cb" id="cb2" />
-													<label for="cb2">Beach</label>
+													<label class = 'tiny'  for="cb2">Food Wine & Nightlife</label>
 													<input type="checkbox" name="cb" id="cb3" />
-													<label for="cb3">Local Culture</label>
-													<input type="checkbox" name="cb" id="cb4" />
-													<label for="cb4">Local Cuisine</label>
+													<label class = 'tiny'  for="cb3">Day Trips and Excursion</label>
+													
 												</div>
 												<div class="group">
 													<input type="checkbox" name="cb" id="cb5" />
-													<label for="cb5">Luxury</label>
+													<label class = 'tiny'  for="cb5">Luxury & Special Occassion</label>
 													<input type="checkbox" name="cb" id="cb6" />
-													<label for="cb6">History</label>
+													<label class = 'tiny'  for="cb6">Air/Helicoptor & Hot air Balloon</label>
 													<input type="checkbox" name="cb" id="cb7" />
-													<label for="cb7">Wine</label>
+													<label class = 'tiny' for="cb7">Tours & Sightseeing</label>
 													<input type="checkbox" name="cb" id="cb8" />
-													<label for="cb8">Safari</label>
-													<input type="checkbox" name="cb" id="cb9" />
-													<label for="cb9">Nightlife</label>
+													<label class ='tiny'  for="cb8">Family Friendly</label>
+													
 												</div>
 												<div class="group">
-													<input type="checkbox" name="cb" id="cb10" />
-													<label for="cb10">Shopping</label>
+                                                    <input type="checkbox" name="cb" id="cb4" />
+													<label class = 'tiny' for="cb4">Sightseeing tickits </label>
+                                                    <input type="checkbox" name="cb" id="cb1" />
+													<label class = 'tiny' for="cb1">Holiday and Seasonal Tours</label>
+													
 													<input type="checkbox" name="cb" id="cb11" />
-													<label for="cb11">Arts and Theatre</label>
-													<input type="checkbox" name="cb" id="cb12" />
-													<label for="cb12">Museusm</label>
+													<label class = 'tiny' for="cb11">Recommended Experience</label>
+													
+										
+                        
+												  </div>
+                                                  <div class=" group">
+                                                    <input type="checkbox" name="cb" id="cb12" />
+													<label class = 'tiny' for="cb12">Culture & Theme</label>
+                                                    <input type="checkbox" name="cb" id="cb13" />
+													<label class = 'tiny' for="cb13">Walking/Cycling & biking</label>
+                                                    <input type="checkbox" name="cb" id="cb9" />
+													<label class = 'tiny' for="cb9">Water Sports</label>
+                                                  </div>
+                                                  <div class="group">
+                                                    <input type="checkbox" name="cb" id="cb14" />
+													<label class = 'tiny' for="cb14">Shows Concerts & Sports </label>
+                                                    <input type="checkbox" name="cb" id="cb15" />
+													<label class = 'tiny' for="cb15">Outdoor Activites</label>
+													
+													<input type="checkbox" name="cb" id="cb16" />
+													<label class = 'tiny' for="cb16">Classes & Workshop</label>
+													
 										
 												  </div>
 											</div>
+                                            <button onclick="get_arr()"> Save </button>
 											<div class="next-button text-center mt-3 ml-2"> <span class="fa fa-arrow-right"></span> </div>
 										</div>
 									</div>
@@ -560,7 +606,7 @@ label, label::before {
 						</div>
 						<div class="col-12">
 							<div class="row px-3">
-								<h2 class="text-muted get-bonus mt-4 mb-5">Get your <span class="text-danger">personalized</span> travel plan</h2> 
+								<h2 class="text-muted get-bonus mt-4 mb-5">Get your <span class="text-danger" style="font-size: 2rem;">personalized</span> travel plan</h2> 
 							</div>
 						</div>
 					</div>
@@ -573,6 +619,16 @@ label, label::before {
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
         <script type="text/javascript"> 
+
+
+        function get_arr(document) {    
+            var array = []
+var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+
+for (var i = 0; i < checkboxes.length; i++) {
+  array.push(checkboxes[i].value)
+}
+console.log(array)}
             $(document).ready(function(){
 
                 var current_fs, next_fs, previous_fs;
@@ -584,7 +640,7 @@ label, label::before {
                 var $button2 = document.querySelector('.increment-btn1');
                 var $button3 = document.querySelector('.decrement-btn1');
 
-
+    
                 $button.addEventListener('click', function(){
                     $counter.value = parseInt($counter.value) + 1; // `parseInt` converts the `value` from a string to a number
                   }, false);
