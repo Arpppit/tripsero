@@ -1,0 +1,12 @@
+{% extends 'users/header.html' %} {% block content %}{% load static %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}" />
+
+<div class="listbox">
+	{% for i in que %}
+	<ul class="list-group">
+		<li class="list-group-item">{{i}}</li>
+	</ul>
+	{% endfor %}
+</div>
+
+{% endblock %}

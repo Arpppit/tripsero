@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			:root {
+				--ideal-viewport-width: 1600;
+			}
+
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+				list-style: none;
+			}
+
+			button {
+				cursor: pointer;
+			}
+
+			body {
+				font-family: "Hind", sans-serif;
+				background: #f2f2f2;
+			}
+
+			.root {
+				display: flex;
+			}
+
+			.header {
+				padding: calc(
+						18 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+					)
+					0;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+
+			.searchIcon {
+				max-width: calc(
+					36 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+				);
+				max-height: calc(
+					36 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+				);
+			}
+
+			.searchBar {
+				display: flex;
+				align-items: center;
+			}
+
+			.searchIcon {
+				display: block;
+				margin-right: calc(
+					8 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+				);
+			}
+
+			.searchTitle {
+				font-size: calc(
+					14 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+				);
+				color: rgba(0, 0, 0, 0.72);
+			}
+
+			.profileSwitcher {
+				display: flex;
+			}
+
+			.profileWrapper {
+				position: relative;
+				margin-right: calc(
+					9 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+				);
+			}
+			.profileWrapper:last-of-type {
+				margin-right: 0;
+			}
+			.profileWrapper.activeProfile:before {
+				content: "";
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				width: calc(
+					12 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+				);
+				height: calc(
+					12 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+				);
+				background: #34b53a;
+				border-radius: 50%;
+			}
+			.profileWrapper img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+
+			.profile {
+				width: calc(
+					44 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+				);
+				height: calc(
+					44 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+				);
+				border-radius: 50%;
+				overflow: hidden;
+			}
+
+			.nav {
+				width: calc(
+					96 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+				);
+				border-top-right-radius: calc(
+					20 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+				);
+				border-bottom-right-radius: calc(
+					20 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+				);
+				height: 100vh;
+				background: white;
+				position: fixed;
+				top: 0;
+				left: 0;
+				display: flex;
+				align-items: center;
+				flex-direction: column;
+			}
+
+			.navTop {
+				height: calc(
+					80 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+				);
+				border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+				margin-bottom: calc(
+					20 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+				);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.navLink {
+				margin-bottom: calc(
+					20 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+				);
+			}
+
+			.circle {
+				width: calc(
+					36 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+				);
+				height: calc(
+					36 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+				);
+				background: rgba(0, 0, 0, 0.12);
+				border-radius: 50%;
+			}
+
+			.listWrapper {
+				display: flex;
+				justify-content: space-between;
+				margin-bottom: calc(
+					50 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+				);
+			}
+
+			.list {
+				width: calc(
+					692 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+				);
+				padding: calc(
+						5 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+					)
+					calc(40 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width)));
+				background: white;
+				border-radius: calc(
+					10 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+				);
+			}
+
+			.listHeading {
+				font-size: calc(
+					22 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+				);
+				margin-bottom: calc(
+					12 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+				);
+				font-weight: 400;
+				color: rgba(0, 0, 0, 0.72);
+			}
+
+			.listItem {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding: calc(
+						20 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+					)
+					0;
+				border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+			}
+			.listItem:last-of-type {
+				border-bottom: 0;
+			}
+
+			.listProfilePic {
+				width: calc(
+					50 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+				);
+				height: calc(
+					50 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+				);
+				border-radius: 50%;
+			}
+
+			.listTime {
+				font-size: calc(
+					18 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+				);
+				color: rgba(0, 0, 0, 0.72);
+				font-weight: 400;
+			}
+
+			.listPrice {
+				width: 100%;
+				font-size: calc(
+					22 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+				);
+				display: flex;
+				justify-content: flex-end;
+			}
+
+			.listCell {
+				width: 30%;
+				display: flex;
+				align-items: center;
+			}
+
+			.main {
+				padding-left: calc(
+					136 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+				);
+				padding-right: calc(
+					30 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+				);
+			}
+
+			.columnsWrapper {
+				display: flex;
+				align-items: flex-start;
+				justify-content: space-between;
+			}
+
+			.column {
+				width: calc(
+					25% -
+						calc(
+							40 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+						)
+				);
+			}
+
+			.feedItem {
+				position: relative;
+				margin-bottom: calc(
+					50 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+				);
+				border-radius: calc(
+					10 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+				);
+				overflow: hidden;
+				background: white;
+			}
+
+			.feedDesc {
+				font-size: calc(
+					16 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+				);
+			}
+
+			.feedTags {
+				margin-bottom: calc(
+					var(--ref-margin-bottom) *
+						(clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+				);
+			}
+
+			.feedTag {
+				display: inline-block;
+				margin-right: calc(
+					6 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+				);
+				margin-bottom: calc(
+					6 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+				);
+				padding: calc(
+						5 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+					)
+					calc(10 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width)));
+				border-radius: calc(
+					4 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+				);
+				font-size: calc(
+					15 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+				);
+				color: #111;
+			}
+			.feedTag:last-of-type {
+				margin-right: 0;
+			}
+
+			.feedTitle {
+				font-size: calc(
+					40 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+				);
+			}
+
+			.feedButton {
+				margin-top: calc(
+					32 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+				);
+				font-size: calc(
+					20 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+				);
+				color: #4339f2;
+				background: none;
+				border: none;
+			}
+
+			.feedItemBG {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				z-index: 1;
+			}
+
+			.feedWrapper {
+				padding: calc(
+						16 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+					)
+					calc(20 * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width)));
+				position: relative;
+				z-index: 2;
+			}
+			.feedWrapper.hasBackground {
+				background: rgba(0, 0, 0, 0.3);
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="root">
+			<nav class="nav">
+				<div class="navTop">
+					<div class="circle"></div>
+				</div>
+				<ul class="links">
+					<li class="navLink">
+						<div class="circle"></div>
+					</li>
+					<li class="navLink">
+						<div class="circle"></div>
+					</li>
+					<li class="navLink">
+						<div class="circle"></div>
+					</li>
+					<li class="navLink">
+						<div class="circle"></div>
+					</li>
+					<li class="navLink">
+						<div class="circle"></div>
+					</li>
+					<li class="navLink">
+						<div class="circle"></div>
+					</li>
+				</ul>
+			</nav>
+			<main class="main">
+				<header class="header">
+					<div class="searchBar">
+						<svg
+							class="searchIcon"
+							width="18"
+							height="18"
+							viewBox="0 0 18 18"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								fill-rule="evenodd"
+								clip-rule="evenodd"
+								d="M2 8C2 4.691 4.691 2 8 2C11.309 2 14 4.691 14 8C14 11.309 11.309 14 8 14C4.691 14 2 11.309 2 8ZM17.707 16.293L14.312 12.897C15.365 11.543 16 9.846 16 8C16 3.589 12.411 0 8 0C3.589 0 0 3.589 0 8C0 12.411 3.589 16 8 16C9.846 16 11.543 15.365 12.897 14.312L16.293 17.707C16.488 17.902 16.744 18 17 18C17.256 18 17.512 17.902 17.707 17.707C18.098 17.316 18.098 16.684 17.707 16.293Z"
+								fill="black"
+							></path>
+						</svg>
+						<h5 class="searchTitle">Search</h5>
+					</div>
+					<ul class="profileSwitcher">
+						<li class="profileWrapper activeProfile">
+							<div class="profile">
+								<img src="https://randomuser.me/api/portraits/men/0.jpg" />
+							</div>
+						</li>
+						<li class="profileWrapper">
+							<div class="profile">
+								<img src="https://randomuser.me/api/portraits/men/1.jpg" />
+							</div>
+						</li>
+						<li class="profileWrapper">
+							<div class="profile">
+								<img src="https://randomuser.me/api/portraits/men/2.jpg" />
+							</div>
+						</li>
+						<li class="profileWrapper">
+							<div class="profile">
+								<img src="https://randomuser.me/api/portraits/men/3.jpg" />
+							</div>
+						</li>
+					</ul>
+				</header>
+				<div class="listWrapper">
+					<div class="listContainer">
+						<h3 class="listHeading">Telescope</h3>
+						<ul class="list">
+							<li class="listItem">
+								<div class="listCell">
+									<img
+										class="listProfilePic"
+										src="https://randomuser.me/api/portraits/women/0.jpg"
+									/>
+								</div>
+								<div class="listCell">
+									<h5 class="listTime">23 Sep 2020</h5>
+								</div>
+								<div class="listCell">
+									<h5 class="listTime">04:15AM</h5>
+								</div>
+								<div class="listCell">
+									<h6 class="listPrice" style="color: orange">$203.00</h6>
+								</div>
+							</li>
+							<li class="listItem">
+								<div class="listCell">
+									<img
+										class="listProfilePic"
+										src="https://randomuser.me/api/portraits/women/1.jpg"
+									/>
+								</div>
+								<div class="listCell">
+									<h5 class="listTime">11 Feb 2021</h5>
+								</div>
+								<div class="listCell">
+									<h5 class="listTime">06:58PM</h5>
+								</div>
+								<div class="listCell">
+									<h6 class="listPrice" style="color: red">$93.00</h6>
+								</div>
+							</li>
+							<li class="listItem">
+								<div class="listCell">
+									<img
+										class="listProfilePic"
+										src="https://randomuser.me/api/portraits/women/2.jpg"
+									/>
+								</div>
+								<div class="listCell">
+									<h5 class="listTime">22 Sep 2020</h5>
+								</div>
+								<div class="listCell">
+									<h5 class="listTime">02:52PM</h5>
+								</div>
+								<div class="listCell">
+									<h6 class="listPrice" style="color: orange">$274.00</h6>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="listContainer">
+						<h3 class="listHeading">Asteroids</h3>
+						<ul class="list">
+							<li class="listItem">
+								<div class="listCell">
+									<img
+										class="listProfilePic"
+										src="https://randomuser.me/api/portraits/women/0.jpg"
+									/>
+								</div>
+								<div class="listCell">
+									<h5 class="listTime">01 Jun 2021</h5>
+								</div>
+								<div class="listCell">
+									<h5 class="listTime">01:36AM</h5>
+								</div>
+								<div class="listCell">
+									<h6 class="listPrice" style="color: blue">$138.00</h6>
+								</div>
+							</li>
+							<li class="listItem">
+								<div class="listCell">
+									<img
+										class="listProfilePic"
+										src="https://randomuser.me/api/portraits/women/1.jpg"
+									/>
+								</div>
+								<div class="listCell">
+									<h5 class="listTime">23 Sep 2020</h5>
+								</div>
+								<div class="listCell">
+									<h5 class="listTime">06:58PM</h5>
+								</div>
+								<div class="listCell">
+									<h6 class="listPrice" style="color: orange">$200.00</h6>
+								</div>
+							</li>
+							<li class="listItem">
+								<div class="listCell">
+									<img
+										class="listProfilePic"
+										src="https://randomuser.me/api/portraits/women/2.jpg"
+									/>
+								</div>
+								<div class="listCell">
+									<h5 class="listTime">01 Apr 2021</h5>
+								</div>
+								<div class="listCell">
+									<h5 class="listTime">02:52PM</h5>
+								</div>
+								<div class="listCell">
+									<h6 class="listPrice" style="color: orange">$296.00</h6>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="columnsWrapper">
+					<div class="column">
+						<div class="feedItem">
+							<img class="feedItemBG" src="https://picsum.photos/200/300" />
+							<div class="feedWrapper hasBackground">
+								<ul
+									class="feedTags"
+									style="--ref-margin-bottom: 111.97113873030712"
+								>
+									<li class="feedTag" style="background: #ccf8fe">Dogs</li>
+								</ul>
+								<h2 class="feedTitle">Kathmandu</h2>
+								<p class="feedDesc">
+									Your business is in a continual battle for your customers’
+									recognition whether you know it or not.
+								</p>
+							</div>
+						</div>
+						<div class="feedItem">
+							<div class="feedWrapper">
+								<ul class="feedTags" style="--ref-margin-bottom: 42">
+									<li class="feedTag" style="background: #dad7fe">Designer</li>
+								</ul>
+								<h2 class="feedTitle">Memphis</h2>
+								<p class="feedDesc">When you enter into any new area</p>
+								<button class="feedButton">Detalies</button>
+							</div>
+						</div>
+						<div class="feedItem">
+							<img class="feedItemBG" src="https://picsum.photos/200/302" />
+							<div class="feedWrapper hasBackground">
+								<ul
+									class="feedTags"
+									style="--ref-margin-bottom: 115.78030436953746"
+								>
+									<li class="feedTag" style="background: #dad7fe">Designer</li>
+									<li class="feedTag" style="background: #ccf8fe">Harare</li>
+									<li class="feedTag" style="background: #fff5cc">
+										Alexandria
+									</li>
+									<li class="feedTag" style="background: #dad7fe">Behance</li>
+								</ul>
+								<h2 class="feedTitle">Kuala Lumpur</h2>
+								<p class="feedDesc">
+									Your business is in a continual battle for your customers’
+									recognition whether you know it or not.
+								</p>
+							</div>
+						</div>
+						<div class="feedItem">
+							<div class="feedWrapper">
+								<ul class="feedTags" style="--ref-margin-bottom: 42">
+									<li class="feedTag" style="background: #fff5cc">Columbus</li>
+									<li class="feedTag" style="background: #fff5cc">
+										Alexandria
+									</li>
+									<li class="feedTag" style="background: #dad7fe">Behance</li>
+								</ul>
+								<h2 class="feedTitle">Brisbane</h2>
+								<p class="feedDesc">When you enter into any new area</p>
+								<button class="feedButton">Detalies</button>
+							</div>
+						</div>
+						<div class="feedItem">
+							<img class="feedItemBG" src="https://picsum.photos/200/304" />
+							<div class="feedWrapper hasBackground">
+								<ul
+									class="feedTags"
+									style="--ref-margin-bottom: 153.9803910003228"
+								>
+									<li class="feedTag" style="background: #dad7fe">Designer</li>
+									<li class="feedTag" style="background: #fff5cc">Columbus</li>
+								</ul>
+								<h2 class="feedTitle">Kuala Lumpur</h2>
+								<p class="feedDesc">
+									Your business is in a continual battle for your customers’
+									recognition whether you know it or not.
+								</p>
+							</div>
+						</div>
+						<div class="feedItem">
+							<img class="feedItemBG" src="https://picsum.photos/200/305" />
+							<div class="feedWrapper hasBackground">
+								<ul
+									class="feedTags"
+									style="--ref-margin-bottom: 159.25909419420333"
+								>
+									<li class="feedTag" style="background: #e2fbd7">Lost</li>
+									<li class="feedTag" style="background: #ccf8fe">Dogs</li>
+								</ul>
+								<h2 class="feedTitle">Melbourne</h2>
+								<p class="feedDesc">
+									Your business is in a continual battle for your customers’
+									recognition whether you know it or not.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="column">
+						<div class="feedItem">
+							<div class="feedWrapper">
+								<ul class="feedTags" style="--ref-margin-bottom: 42">
+									<li class="feedTag" style="background: #e2fbd7">Lost</li>
+									<li class="feedTag" style="background: #dad7fe">Designer</li>
+									<li class="feedTag" style="background: #dad7fe">Behance</li>
+								</ul>
+								<h2 class="feedTitle">Melbourne</h2>
+								<p class="feedDesc">
+									When you enter into any new area of science, you almost always
+									find.
+								</p>
+								<button class="feedButton">Detalies</button>
+							</div>
+						</div>
+						<div class="feedItem">
+							<div class="feedWrapper">
+								<ul class="feedTags" style="--ref-margin-bottom: 42">
+									<li class="feedTag" style="background: #dad7fe">Designer</li>
+									<li class="feedTag" style="background: #fff5cc">Columbus</li>
+									<li class="feedTag" style="background: #fff5cc">
+										Alexandria
+									</li>
+									<li class="feedTag" style="background: #dad7fe">Behance</li>
+									<li class="feedTag" style="background: #ccf8fe">Dogs</li>
+								</ul>
+								<h2 class="feedTitle">Melbourne</h2>
+								<p class="feedDesc">
+									Your business is in a continual battle for your customers’
+									recognition whether you know it or not.
+								</p>
+								<button class="feedButton">Detalies</button>
+							</div>
+						</div>
+						<div class="feedItem">
+							<div class="feedWrapper">
+								<ul class="feedTags" style="--ref-margin-bottom: 42">
+									<li class="feedTag" style="background: #e2fbd7">Lost</li>
+									<li class="feedTag" style="background: #fff5cc">Columbus</li>
+									<li class="feedTag" style="background: #ccf8fe">Dogs</li>
+								</ul>
+								<h2 class="feedTitle">Brisbane</h2>
+								<p class="feedDesc">When you enter into any new area</p>
+								<button class="feedButton">Detalies</button>
+							</div>
+						</div>
+						<div class="feedItem">
+							<div class="feedWrapper">
+								<ul class="feedTags" style="--ref-margin-bottom: 42">
+									<li class="feedTag" style="background: #dad7fe">Designer</li>
+									<li class="feedTag" style="background: #fff5cc">
+										Alexandria
+									</li>
+								</ul>
+								<h2 class="feedTitle">Memphis</h2>
+								<p class="feedDesc">
+									Your business is in a continual battle for your customers’
+									recognition whether you know it or not.
+								</p>
+								<button class="feedButton">Detalies</button>
+							</div>
+						</div>
+						<div class="feedItem">
+							<div class="feedWrapper">
+								<ul class="feedTags" style="--ref-margin-bottom: 42">
+									<li class="feedTag" style="background: #ccf8fe">Harare</li>
+									<li class="feedTag" style="background: #fff5cc">
+										Alexandria
+									</li>
+								</ul>
+								<h2 class="feedTitle">Kuala Lumpur</h2>
+								<p class="feedDesc">When you enter into any new area</p>
+								<button class="feedButton">Detalies</button>
+							</div>
+						</div>
+						<div class="feedItem">
+							<img class="feedItemBG" src="https://picsum.photos/200/306" />
+							<div class="feedWrapper hasBackground">
+								<ul
+									class="feedTags"
+									style="--ref-margin-bottom: 132.13377729048545"
+								>
+									<li class="feedTag" style="background: #e2fbd7">Lost</li>
+									<li class="feedTag" style="background: #dad7fe">Designer</li>
+									<li class="feedTag" style="background: #ccf8fe">Harare</li>
+									<li class="feedTag" style="background: #dad7fe">Behance</li>
+									<li class="feedTag" style="background: #ccf8fe">Dogs</li>
+								</ul>
+								<h2 class="feedTitle">Kuala Lumpur</h2>
+								<p class="feedDesc">
+									Your business is in a continual battle for your customers’
+									recognition whether you know it or not.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="column">
+						<div class="feedItem">
+							<div class="feedWrapper">
+								<ul class="feedTags" style="--ref-margin-bottom: 42">
+									<li class="feedTag" style="background: #e2fbd7">Lost</li>
+								</ul>
+								<h2 class="feedTitle">Kuala Lumpur</h2>
+								<p class="feedDesc">
+									Your business is in a continual battle for your customers’
+									recognition whether you know it or not.
+								</p>
+								<button class="feedButton">Detalies</button>
+							</div>
+						</div>
+						<div class="feedItem">
+							<div class="feedWrapper">
+								<ul class="feedTags" style="--ref-margin-bottom: 42">
+									<li class="feedTag" style="background: #dad7fe">Designer</li>
+									<li class="feedTag" style="background: #fff5cc">Columbus</li>
+								</ul>
+								<h2 class="feedTitle">Helsinki</h2>
+								<p class="feedDesc">
+									Your business is in a continual battle for your customers’
+									recognition whether you know it or not.
+								</p>
+								<button class="feedButton">Detalies</button>
+							</div>
+						</div>
+						<div class="feedItem">
+							<img class="feedItemBG" src="https://picsum.photos/200/304" />
+							<div class="feedWrapper hasBackground">
+								<ul
+									class="feedTags"
+									style="--ref-margin-bottom: 120.70521488947634"
+								>
+									<li class="feedTag" style="background: #e2fbd7">Lost</li>
+									<li class="feedTag" style="background: #ccf8fe">Dogs</li>
+								</ul>
+								<h2 class="feedTitle">Melbourne</h2>
+								<p class="feedDesc">When you enter into any new area</p>
+							</div>
+						</div>
+						<div class="feedItem">
+							<div class="feedWrapper">
+								<ul class="feedTags" style="--ref-margin-bottom: 42">
+									<li class="feedTag" style="background: #dad7fe">Designer</li>
+									<li class="feedTag" style="background: #fff5cc">
+										Alexandria
+									</li>
+									<li class="feedTag" style="background: #ccf8fe">Dogs</li>
+								</ul>
+								<h2 class="feedTitle">Helsinki</h2>
+								<p class="feedDesc">
+									When you enter into any new area of science, you almost always
+									find.
+								</p>
+								<button class="feedButton">Detalies</button>
+							</div>
+						</div>
+						<div class="feedItem">
+							<div class="feedWrapper">
+								<ul class="feedTags" style="--ref-margin-bottom: 42">
+									<li class="feedTag" style="background: #ccf8fe">Harare</li>
+									<li class="feedTag" style="background: #ccf8fe">Dogs</li>
+								</ul>
+								<h2 class="feedTitle">Memphis</h2>
+								<p class="feedDesc">When you enter into any new area</p>
+								<button class="feedButton">Detalies</button>
+							</div>
+						</div>
+						<div class="feedItem">
+							<img class="feedItemBG" src="https://picsum.photos/200/307" />
+							<div class="feedWrapper hasBackground">
+								<ul
+									class="feedTags"
+									style="--ref-margin-bottom: 110.57792990991213"
+								>
+									<li class="feedTag" style="background: #ccf8fe">Harare</li>
+									<li class="feedTag" style="background: #fff5cc">
+										Alexandria
+									</li>
+									<li class="feedTag" style="background: #dad7fe">Behance</li>
+								</ul>
+								<h2 class="feedTitle">Kuala Lumpur</h2>
+								<p class="feedDesc">
+									Your business is in a continual battle for your customers’
+									recognition whether you know it or not.
+								</p>
+							</div>
+						</div>
+						<div class="feedItem">
+							<img class="feedItemBG" src="https://picsum.photos/200/308" />
+							<div class="feedWrapper hasBackground">
+								<ul
+									class="feedTags"
+									style="--ref-margin-bottom: 140.41453123109002"
+								>
+									<li class="feedTag" style="background: #fff5cc">Columbus</li>
+									<li class="feedTag" style="background: #dad7fe">Behance</li>
+								</ul>
+								<h2 class="feedTitle">Memphis</h2>
+								<p class="feedDesc">
+									Your business is in a continual battle for your customers’
+									recognition whether you know it or not.
+								</p>
+							</div>
+						</div>
+						<div class="feedItem">
+							<img class="feedItemBG" src="https://picsum.photos/200/309" />
+							<div class="feedWrapper hasBackground">
+								<ul
+									class="feedTags"
+									style="--ref-margin-bottom: 135.87753573039785"
+								>
+									<li class="feedTag" style="background: #e2fbd7">Lost</li>
+									<li class="feedTag" style="background: #fff5cc">
+										Alexandria
+									</li>
+									<li class="feedTag" style="background: #dad7fe">Behance</li>
+								</ul>
+								<h2 class="feedTitle">Bengaluru</h2>
+								<p class="feedDesc">
+									Your business is in a continual battle for your customers’
+									recognition whether you know it or not.
+								</p>
+							</div>
+						</div>
+						<div class="feedItem">
+							<img class="feedItemBG" src="https://picsum.photos/200/310" />
+							<div class="feedWrapper hasBackground">
+								<ul
+									class="feedTags"
+									style="--ref-margin-bottom: 140.63090319518142"
+								>
+									<li class="feedTag" style="background: #fff5cc">Columbus</li>
+									<li class="feedTag" style="background: #ccf8fe">Harare</li>
+									<li class="feedTag" style="background: #ccf8fe">Dogs</li>
+								</ul>
+								<h2 class="feedTitle">Brisbane</h2>
+								<p class="feedDesc">
+									When you enter into any new area of science, you almost always
+									find.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="column">
+						<div class="feedItem">
+							<img class="feedItemBG" src="https://picsum.photos/200/303" />
+							<div class="feedWrapper hasBackground">
+								<ul
+									class="feedTags"
+									style="--ref-margin-bottom: 145.1043469371867"
+								>
+									<li class="feedTag" style="background: #e2fbd7">Lost</li>
+								</ul>
+								<h2 class="feedTitle">Memphis</h2>
+								<p class="feedDesc">
+									When you enter into any new area of science, you almost always
+									find.
+								</p>
+							</div>
+						</div>
+						<div class="feedItem">
+							<img class="feedItemBG" src="https://picsum.photos/200/304" />
+							<div class="feedWrapper hasBackground">
+								<ul
+									class="feedTags"
+									style="--ref-margin-bottom: 151.87042642624914"
+								>
+									<li class="feedTag" style="background: #fff5cc">Columbus</li>
+								</ul>
+								<h2 class="feedTitle">Brisbane</h2>
+								<p class="feedDesc">
+									Your business is in a continual battle for your customers’
+									recognition whether you know it or not.
+								</p>
+							</div>
+						</div>
+						<div class="feedItem">
+							<img class="feedItemBG" src="https://picsum.photos/200/305" />
+							<div class="feedWrapper hasBackground">
+								<ul
+									class="feedTags"
+									style="--ref-margin-bottom: 140.1360162812913"
+								>
+									<li class="feedTag" style="background: #e2fbd7">Lost</li>
+								</ul>
+								<h2 class="feedTitle">Bengaluru</h2>
+								<p class="feedDesc">
+									When you enter into any new area of science, you almost always
+									find.
+								</p>
+							</div>
+						</div>
+						<div class="feedItem">
+							<img class="feedItemBG" src="https://picsum.photos/200/306" />
+							<div class="feedWrapper hasBackground">
+								<ul
+									class="feedTags"
+									style="--ref-margin-bottom: 123.65856930175838"
+								>
+									<li class="feedTag" style="background: #ccf8fe">Dogs</li>
+								</ul>
+								<h2 class="feedTitle">Kuala Lumpur</h2>
+								<p class="feedDesc">
+									When you enter into any new area of science, you almost always
+									find.
+								</p>
+							</div>
+						</div>
+						<div class="feedItem">
+							<img class="feedItemBG" src="https://picsum.photos/200/307" />
+							<div class="feedWrapper hasBackground">
+								<ul
+									class="feedTags"
+									style="--ref-margin-bottom: 147.47585016032886"
+								>
+									<li class="feedTag" style="background: #dad7fe">Designer</li>
+									<li class="feedTag" style="background: #fff5cc">Columbus</li>
+								</ul>
+								<h2 class="feedTitle">Melbourne</h2>
+								<p class="feedDesc">
+									Your business is in a continual battle for your customers’
+									recognition whether you know it or not.
+								</p>
+							</div>
+						</div>
+						<div class="feedItem">
+							<div class="feedWrapper">
+								<ul class="feedTags" style="--ref-margin-bottom: 42">
+									<li class="feedTag" style="background: #e2fbd7">Lost</li>
+									<li class="feedTag" style="background: #fff5cc">Columbus</li>
+									<li class="feedTag" style="background: #fff5cc">
+										Alexandria
+									</li>
+									<li class="feedTag" style="background: #ccf8fe">Dogs</li>
+								</ul>
+								<h2 class="feedTitle">Helsinki</h2>
+								<p class="feedDesc">
+									Your business is in a continual battle for your customers’
+									recognition whether you know it or not.
+								</p>
+								<button class="feedButton">Detalies</button>
+							</div>
+						</div>
+						<div class="feedItem">
+							<div class="feedWrapper">
+								<ul class="feedTags" style="--ref-margin-bottom: 42">
+									<li class="feedTag" style="background: #ccf8fe">Harare</li>
+									<li class="feedTag" style="background: #fff5cc">
+										Alexandria
+									</li>
+									<li class="feedTag" style="background: #ccf8fe">Dogs</li>
+								</ul>
+								<h2 class="feedTitle">Kathmandu</h2>
+								<p class="feedDesc">
+									Your business is in a continual battle for your customers’
+									recognition whether you know it or not.
+								</p>
+								<button class="feedButton">Detalies</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+		</div>
+		<!-- partial -->
+	</body>
+</html>
