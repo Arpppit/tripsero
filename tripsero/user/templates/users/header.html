@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="Get easy travel recommendations in 5 mins. " />
+		<title>Trip recommender system </title>
+		{% load static %}
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" >
+		<link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+		<link
+			type="text/css"
+			rel="stylesheet"
+			href="{% static 'css/bootstrap.min.css' %}"
+		/>
+		<link rel="stylesheet" href="{% static 'css/login.css' %}" />
+		<script href="{% static 'js/login.js' %}"></script>
+
+		<link
+			rel="canonical"
+			href="https://getbootstrap.com/docs/5.0/examples/dashboard/"
+		/>
+		<style>
+			.bd-placeholder-img {
+				font-size: 1.125rem;
+				background-image: linear-gradient(left to right, #0d6efd, #fff); 
+				text-anchor: middle;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+
+				user-select: none;
+			}
+
+			@media (min-width: 768px) {
+				.bd-placeholder-img-lg {
+					font-size: 3.5rem;
+				}
+			}
+		</style>
+
+		<!-- Custom styles for this template -->
+		<link href="{% static 'css/dashboard.css'%}" rel="stylesheet" />
+	</head>
+	<body>
+		{% comment %} <header
+			class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow"
+		>
+			<a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="/"
+				></a
+			>
+			<button
+				class="navbar-toggler position-absolute d-md-none collapsed"
+				type="button"
+				data-bs-toggle="collapse"
+				data-bs-target="#sidebarMenu"
+				aria-controls="sidebarMenu"
+				aria-expanded="false"
+				aria-label="Toggle navigation"
+			>
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<input
+				class="form-control form-control-dark w-100"
+				type="text"
+				placeholder="Search"
+				aria-label="Search"
+			/>
+			<div class="navbar-nav">
+				<div class="nav-item text-nowrap">
+					<a class="nav-link px-3" href="#">Sign out</a>
+				</div>
+			</div>
+		</header> {% endcomment %}
+		<div class="container-fluid">
+			<div class="row">
+			<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+				<nav
+					id="sidebarMenu"
+					class="col-md-3 col-lg-2 d-md-block bg-primary sidebar collapse"
+				>
+					<ul class="nav flex-column">
+					<li class="nav-item">
+							<a class="nav-link" href="/">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/adduser">Friends n Groups</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/form">Sign Up</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/survey">Survey</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/chat">Chat</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/que">Details</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/adduser"></a>
+						</li>
+						<li class="nav-item dropdown">
+							<a
+								class="nav-link dropdown-toggle"
+								data-bs-toggle="dropdown"
+								href="#"
+								role="button"
+								aria-haspopup="true"
+								aria-expanded="false"
+							></a>
+						</li>
+					</ul>
+				</nav>
+				<div
+					class="
+						d-flex
+						justify-content-between
+						flex-wrap flex-md-nowrap
+						align-items-center
+						pt-3
+						pb-2
+						mb-3
+						border-bottom
+					"
+				></div>
+				
+					<h1 class="h2">Trip recommender system</h1>
+					{% comment %} <div class="btn-toolbar mb-2 mb-md-0">
+						<div class="btn-group me-2">
+							<button type="button" class="btn btn-sm btn-outline-secondary">
+								Share
+							</button>
+							<button type="button" class="btn btn-sm btn-outline-secondary">
+								Export
+							</button>
+						</div>
+						<button
+							type="button"
+							class="btn btn-sm btn-outline-secondary dropdown-toggle"
+						>
+							<span data-feather="calendar"></span>
+							This week
+						</button>
+					</div> 
+				</div>{% endcomment %}
+				
+					{% block content %} {% endblock %}
+				</main>
+			</div>
+		</div>
+		<footer class="page-footer font-small special-color-dark pt-4">
+			<ul class="list-unstyled list-inline text-center">
+				<li class="list-inline-item">
+					<a class="btn-floating btn-fb mx-1">
+						<i class="fab fa-facebook-f"></i>
+					</a>
+				</li>
+				<li class="list-inline-item">
+					<a class="btn-floating btn-tw mx-1">
+						<i class="fab fa-twitter"></i>
+					</a>
+				</li>
+				<li class="list-inline-item">
+					<a class="btn-floating btn-gplus mx-1">
+						<i class="fab fa-google-plus-g"></i>
+					</a>
+				</li>
+				<li class="list-inline-item">
+					<a class="btn-floating btn-li mx-1">
+						<i class="fab fa-linkedin-in"></i>
+					</a>
+				</li>
+			</ul>
+			
+		</footer>
+		<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+			integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+			crossorigin="anonymous"
+		></script>
+	</body>
+</html>

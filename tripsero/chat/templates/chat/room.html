@@ -1,0 +1,97 @@
+<!-- chat/templates/chat/room.html -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300"
+			rel="stylesheet"
+			type="text/css"
+		/>
+		<script src="https://use.typekit.net/hoy3lrg.js"></script>
+		<link
+			rel="stylesheet prefetch"
+			href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+		/>
+		<link
+			rel="stylesheet prefetch"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css"
+		/>
+		<link
+			href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+			rel="stylesheet"
+			id="bootstrap-css"
+		/>
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<link
+			href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
+			rel="stylesheet"
+			id="bootstrap-css"
+		/>
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+		<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	</head>
+	<body>
+		{% extends 'users/header.html' %} {% block content %}
+		<div class="listbox">
+			<textarea
+				id="chat-log"
+				cols="160"
+				rows="20"
+				placeholder="Chat appears here..."
+			></textarea>
+
+			<br />
+			<input id="chat-message-input" type="text" size="100" /><br />
+			<input id="chat-message-submit" type="button" value="Send" />
+			{% comment %} {% for user in room_name %}
+			<ul class="list-group">
+				<li class="list-group-item">
+					<p>{{ user|json_script:"room-name" }}</p>
+				</li>
+			</ul>
+			{% endfor %} {% endcomment %} {{ room_name|json_script:"room-name" }}
+			<script>
+				const roomName = JSON.parse(
+					document.getElementById("room-name").textContent
+				);
+
+				const chatSocket = new WebSocket(
+					"ws://" + window.location.host + "/ws/chat/" + roomName + "/"
+				);
+
+				chatSocket.onmessage = function (e) {
+					const data = JSON.parse(e.data);
+					document.querySelector("#chat-log").value +=
+						">" + data.message + "\n";
+				};
+
+				chatSocket.onclose = function (e) {
+					console.error("Chat socket closed unexpectedly");
+				};
+
+				document.querySelector("#chat-message-input").focus();
+				document.querySelector("#chat-message-input").onkeyup = function (e) {
+					if (e.keyCode === 13) {
+						// enter, return
+						document.querySelector("#chat-message-submit").click();
+					}
+				};
+
+				document.querySelector("#chat-message-submit").onclick = function (e) {
+					const messageInputDom = document.querySelector("#chat-message-input");
+					const message = messageInputDom.value;
+					chatSocket.send(
+						JSON.stringify({
+							message: message,
+						})
+					);
+					messageInputDom.value = "";
+				};
+			</script>
+			<button onClick="location.href='../'">Back to Lobby</button>
+		</div>
+		{% endblock %}
+	</body>
+</html>

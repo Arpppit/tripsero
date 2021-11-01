@@ -1,0 +1,726 @@
+{% extends 'users/header.html' %} {% block content %}
+
+
+<style>
+.card0 {
+    background-color: #F5F5F5;
+    border-radius: 8px;
+    z-index: 0
+}
+
+.card00 {
+    z-index: 0
+}
+
+.card1 {
+    margin-left: 140px;
+    z-index: 0;
+    border-right: 1px solid #F5F5F5
+}
+
+.card2 {
+    display: none
+
+}
+
+.card2.show {
+    display: block;
+    margin-top:30px;
+}
+.sec{
+    border:5px solid  black;
+    box-shadow: 2px 5px grey;
+    z-index: 99;
+}
+
+.main{
+    height:140px;
+    border-top-left-radius: 35px;
+    border-top-right-radius: 35px;
+    
+    position:relative;
+    
+    background-image: url(https://i.ibb.co/RBLY65f/beach-g9a5740bbe-1920.jpg);
+    background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;
+}
+.top_background {
+    
+    height:150px;
+    width: 100%;
+    border : 2px solid green;
+  
+}
+.social {
+    border-radius: 50%;
+    background-color: #FFCDD2;
+    color: #E53935;
+    height: 47px;
+    width: 47px;
+    padding-top: 16px;
+    cursor: pointer
+}
+
+
+input,
+select {
+    padding: 2px;
+    border-radius: 0px;
+    box-sizing: border-box;
+    color: #9E9E9E;
+    border: 1px solid #BDBDBD;
+    font-size: 16px;
+    letter-spacing: 1px;
+    height: 50px !important
+}
+
+select {
+    width: 100%;
+    margin-bottom: 85px
+}
+
+input:focus,
+select:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #E53935 !important;
+    outline-width: 0 !important
+}
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+    background-color: #E53935
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+    width: 77%
+}
+
+.form-control-placeholder {
+    position: absolute;
+    top: 0px;
+    padding: 12px 2px 0 2px;
+    transition: all 300ms;
+    opacity: 0.5
+}
+
+.form-control:focus+.form-control-placeholder,
+.form-control:valid+.form-control-placeholder {
+    font-size: 95%;
+    top: 10px;
+    transform: translate3d(0, -100%, 0);
+    opacity: 1;
+    background-color: #fff
+}
+
+.next-button {
+    width: 18%;
+    height: 50px;
+    background-color: #BDBDBD;
+    color: #fff;
+    border-radius: 6px;
+    padding: 10px;
+    cursor: pointer
+}
+
+.next-button:hover {
+    background-color: #E53935;
+    color: #fff
+}
+
+.get-bonus {
+    margin-left: 154px
+}
+
+.pic {
+    width: 230px;
+    height: 110px
+}
+
+#progressbar {
+    position: absolute;
+    left: 35px;
+    overflow: hidden;
+    color: #E53935
+}
+
+#progressbar li {
+    list-style-type: none;
+    font-size: 8px;
+    font-weight: 400;
+    margin-bottom: 36px
+}
+
+#progressbar li:nth-child(6) {
+    margin-bottom: 88px
+}
+
+#progressbar .step0:before {
+    content: "";
+    color: #fff
+}
+
+#progressbar li:before {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    display: block;
+    font-size: 20px;
+    background: #fff;
+    border: 2px solid #E53935;
+    border-radius: 50%;
+    margin: auto
+}
+
+#progressbar li:last-child:before {
+    width: 40px;
+    height: 40px
+}
+
+#progressbar li:after {
+    content: '';
+    width: 3px;
+    height: 100px;
+    background: #BDBDBD2e;
+    position: absolute;
+    left: 58px;
+   
+    z-index: -1
+}
+#progressbar li:last-child:after {
+    top: 147px;
+    height: 132px
+}
+
+#progressbar li:nth-child(3):after {
+    top: 81px
+}
+
+#progressbar li:nth-child(2):after {
+    top: 0px
+}
+
+#progressbar li:first-child:after {
+    position: absolute;
+    top: -81px
+}
+
+#progressbar li.active:after {
+    background: #E53935
+}
+
+#progressbar li.active:before {
+    background: #E53935;
+    font-family: FontAwesome;
+    content: "\f00c"
+}
+
+.tick {
+    width: 100px;
+    height: 100px
+}
+
+.prev {
+    display: block;
+    position: absolute;
+    left: 40px;
+    top: 20px;
+    cursor: pointer
+}
+
+.prev:hover {
+    color: #D50000 !important
+}
+
+@media screen and (max-width: 912px) {
+    .card00 {
+        padding-top: 30px
+    }
+
+    .card1 {
+        border: none;
+        margin-left: 50px
+    }
+
+    .card2 {
+        border-bottom: 1px solid #F5F5F5;
+        margin-bottom: 25px
+    }
+
+    .social {
+        height: 30px;
+        width: 30px;
+        font-size: 15px;
+        padding-top: 8px;
+        margin-top: 7px
+    }
+
+    .get-bonus {
+        margin-top: 40px !important;
+        margin-left: 75px
+    }
+
+    #progressbar {
+        left: -25px
+    }
+    
+}
+.group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2em;
+    color:#0072bc;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+input[type="checkbox"], input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
+label {
+    position: relative;
+    margin-right: 1em;
+    padding-left: 2em;
+    padding-right: 1em;
+    line-height: 2;
+    cursor: pointer;
+}
+
+.tiny {
+    position: relative;
+    margin-right: 1em;
+    padding-left: 2em;
+    padding-right: 1em;
+    line-height: 1;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+
+label:before {
+    box-sizing: border-box;
+    content: " ";
+    position: absolute;
+    top: 0.3em;
+    left: 0;
+    display: block;
+    width: 1.5em;
+    height: 1.5em;
+    border: 2px solid #0072bc;
+    border-radius: 0.25em;
+    z-index: -1;
+}
+input[type="radio"] + label::before {
+    border-radius: 1em;
+}
+/* Checked */
+input[type="checkbox"]:checked + label, input[type="radio"]:checked + label {
+    padding-left: 1em;
+    color: #fff;
+}
+input[type="checkbox"]:checked + label:before, input[type="radio"]:checked + label:before {
+    top: 0;
+    width: 100%;
+    height: 2em;
+    background: #0072bc;
+}
+/* Transition */
+label, label::before {
+    -webkit-transition: 0.25s all ease;
+    -o-transition: 0.25s all ease;
+    transition: 0.25s all ease;
+}
+
+
+</style>
+
+<div class="container-fluid px-1 px-md-4 py-5 mx-auto" >
+	<div class="row d-flex  " >
+		
+		<div class="col-12 col-md-11 col-lg-10 col-xl-9  ">
+			<div class ='main' >
+
+			</div>
+			<div class="card card0 border-0  sec">
+				<div class="row">
+					<div class="col-12 ">
+						<div class="card card00 m-2 border-0">
+							<div class="row text-center justify-content-center px-3">
+								<p class="prev text-danger"><span class="fa fa-long-arrow-left"> Go Back</span></p id="back">
+							   
+							</div>
+							<div class="d-flex flex-md-row px-3 mt-4 flex-column-reverse">
+								<div class="col-md-3">
+									<div class="card1">
+										<ul id="progressbar" class="text-center">
+											<li class="active step0"></li>
+											<li class="step0"></li>
+											<li class="step0"></li>
+											<li class="step0"></li>
+											<li class="step0"></li>
+											<li class="step0"></li>
+											<li class="step0"></li>
+											
+
+										</ul>
+										<h6 class="mb-5">Location</h6>
+										<h6 class="mb-5">Dates</h6>
+										<h6 class="mb-5">Occassion</h6>
+										<h6 class="mb-5">Travellers</h6>
+										<h6 class="mb-5">Budget</h6>
+										<h6 class="mb-5">Activities</h6>
+										
+										
+										
+									</div>
+								</div>
+								<div class="col-md-9">
+									<div class="card2 first-screen show ml-2" style='margin-top:50px'>
+										<div class="row text-center px-3 mr-2">
+											<h1> Where would you like to go?</h1>
+											<!-- <div class="mb-2 col-2"> <span class="fa fa-reddit social"></span> </div>
+											<div class="mb-2 col-2"> <span class="fa fa-facebook social"></span> </div>
+											<div class="mb-2 col-2"> <span class="fa fa-linkedin social"></span> </div>
+											<div class="mb-2 col-2"> <span class="fa fa-google-plus social"></span> </div>
+											<div class="mb-2 col-2"> <span class="fa fa-twitter social"></span> </div>
+											<div class="mb-2 col-2"> <span class="fa fa-dropbox social"></span> </div> -->
+										</div>
+										<div class="row px-3 mt-4">
+											<div class="form-group mt-1 mb-1"> <input type="text" id="email" class="form-control" required> <span class="ml-3 form-control-placeholder" for="email">Destination</span> </div>
+											<div class="next-button text-center mt-1 ml-2"> <span class="fa fa-arrow-right"></span> </div>
+										</div>
+										<div class="row px-3 mt-1 mb-5">
+											<div class="custom-control custom-checkbox"> <input checked id="customCheck1" type="checkbox" class="custom-control-input"> <label for="customCheck1" class="custom-control-label">I am not sure of my destination</label> </div>
+										</div>
+									</div>
+									<div class="card2 ml-2">
+										<div class="row px-3 mt-3">
+											<h1>When would you like to travel?</h1>
+							
+											<!-- <div class="form-group mt-1 mb-1"> <input type="password" id="pwd" class="form-control" required> <label class="ml-3 form-control-placeholder" for="pwd">Password</label> </div> -->
+                                            <h5  style = 'margin-top: 50px; '> Start Date </h5>
+											<input class='form-group mt-1 mb-1' type="date" data-date-inline-picker="true"  style= 'margin-right:50px; padding:30px 30px;  margin-bottom:50px !important; width:400px !important' /> 
+                                            <h5  style = 'margin-top: 20px; '> End Date </h5>
+                                            <input class='form-group mt-1 mb-1' type="date" data-date-inline-picker="true"  style= 'margin-right:50px; padding:30px 30px; margin-top:10px  !important; margin-bottom:50px !important; width:400px !important' /> 
+											<div class="next-button text-center mt-1 ml-2" style='float:right'> <span class="fa fa-arrow-right"></span> </div>
+										</div>
+										<div class="row mt-3 mb-5">
+											<div class="col-12">
+												<p class="mb-1"></p>
+											   </div>
+										</div>
+										
+									</div>
+									<div class="card2 ml-2">
+										<div class="row px-3 mt-3">
+											<h1>Is there a special occasion for your visit?</h1>
+											<div class="form-group mt-3 mb-4 " >
+												<div class="group">
+													<input type="radio" name="rb" id="rb1" />
+													<label for="rb1">Friends Trip</label>
+													<input type="radio" name="rb" id="rb2" />
+													<label for="rb2">Road Trip</label>
+													<input type="radio" name="rb" id="rb3" />
+													<label for="rb3">Solo Trip</label>
+													<input type="radio" name="rb" id="rb4" />
+													<label for="rb4">Cruise</label>
+												  </div>
+												  <div class="group">
+													<input type="radio" name="rb" id="rb5" />
+													<label for="rb5">Festival</label>
+													<input type="radio" name="rb" id="rb6" />
+													<label for="rb6">Anniversary</label>
+													<input type="radio" name="rb" id="rb7" />
+													<label for="rb7">Honeymoon</label>
+													<!-- <input type="radio" name="rb" id="rb8" />
+													<label for="rb8">Family Vacation</label>
+													<input type="radio" name="rb" id="rb9" />
+													<label for="rb9">Other</label> -->
+												  </div>
+												
+											</div>
+											<div class="next-button text-center mt-3 ml-2"> <span class="fa fa-arrow-right"></span> </div>
+										</div>
+									</div>
+									<div class="card2 ml-2">
+										<div class="row px-3 mt-3">
+											<h1>How many people are going on the trip?</h1>
+											<div class="form-group mt-3 mb-4">
+												<div class="select mb-3">
+													<div class='group'>
+														<button type="button" class="decrement-btn" style='
+                                                        color: #222;
+														width:100px;
+														margin-left:30px;
+														background: none;
+														font-size:20px;
+														margin-right:30px'>-</button>
+														
+														<input type="text" class="counter" value="1" style='overflow: visible;
+														border: none;
+														margin: 0px;
+														width: 30px;
+														font-weight:500;
+														font-size: 22px;
+														color: black'/>
+														<span style='font-size: 22px;font-weight:500'> Adults</span>
+														<button type="button" class="increment-btn" style='
+                                                        color: #222;
+														width:100px;
+														margin-left:30px;
+														background: none;
+														font-size:20px;
+														margin-right:30px'>+</button>
+													</div>
+													<div class="group">
+													<button type="button" class="decrement-btn1" style='
+                                                    color: #222;
+													width:100px;
+													margin-left:30px;
+													background: none;
+													font-size:20px;
+													margin-right:30px'>-</button>
+													
+													<input type="text" class="counter1" value="1" style='overflow: visible;
+													border: none;
+													margin: 0px;
+													width: 30px;
+													font-weight:500;
+													font-size: 22px;
+													color: black'/>
+													<span style='font-size: 22px;font-weight:500'> Children</span>
+													<button type="button" class="increment-btn1" style='
+                                                    color: #222;
+													width:100px;
+													margin-left:30px;
+													background: none;
+													font-size:20px;
+													margin-right:30px'>+</button>
+												</div>  
+												</div>
+											</div>
+											<div class="next-button text-center mt-3 ml-2"> <span class="fa fa-arrow-right"></span> </div>
+										</div>
+									</div>
+									<div class="card2 ml-2">
+										<div class="row px-3 mt-3">
+											<h1>What’s the budget for your trip?</h1>
+											
+											<div class="form-group mt-3 mb-4">
+												<div class="select mb-3"> 
+													<h2> Excluding flights</h2>
+													<div class="group" >
+														<input type="radio" name="rbv" id="rbv1" />
+														<label for="rbv1">$1000</label>
+														<input type="radio" name="rbv" id="rbv2" />
+														<label for="rbv2">$2500</label>
+														<input type="radio" name="rbv" id="rbv3" />
+														<label for="rbv3">$5000</label>
+														<input type="radio" name="rbv" id="rbv4" />
+														<label for="rbv4">$7500</label>
+														<input type="radio" name="rbv" id="rbv5" />
+														<label for="rbv5">$8000</label>
+														<input type="radio" name="rbv" id="rbv6" />
+														<label for="rbv6">$9900</label>
+														<input type="radio" name="rbv" id="rbv7" />
+													  </div> </div>
+											</div>
+											<div class="next-button text-center mt-3 ml-2"> <span class="fa fa-arrow-right"></span> </div>
+										</div>
+									</div>
+									<div class="card2 ml-2">
+										<div class="row px-3 mt-3">
+											<h1>What do you want to do there?</h1>
+
+                                            <span> Please select atleast 5</span>
+											<div class="form-group mt-3 mb-4 " >
+												<div class="group">
+													<input type="checkbox" name="cb" id="cb10" />
+													<label class = 'tiny'  for="cb10">Private and Custom Tours</label>
+													<input type="checkbox" name="cb" id="cb2" />
+													<label class = 'tiny'  for="cb2">Food Wine & Nightlife</label>
+													<input type="checkbox" name="cb" id="cb3" />
+													<label class = 'tiny'  for="cb3">Day Trips and Excursion</label>
+													
+												</div>
+												<div class="group">
+													<input type="checkbox" name="cb" id="cb5" />
+													<label class = 'tiny'  for="cb5">Luxury & Special Occassion</label>
+													<input type="checkbox" name="cb" id="cb6" />
+													<label class = 'tiny'  for="cb6">Air/Helicoptor & Hot air Balloon</label>
+													<input type="checkbox" name="cb" id="cb7" />
+													<label class = 'tiny' for="cb7">Tours & Sightseeing</label>
+													<input type="checkbox" name="cb" id="cb8" />
+													<label class ='tiny'  for="cb8">Family Friendly</label>
+													
+												</div>
+												<div class="group">
+                                                    <input type="checkbox" name="cb" id="cb4" />
+													<label class = 'tiny' for="cb4">Sightseeing tickits </label>
+                                                    <input type="checkbox" name="cb" id="cb1" />
+													<label class = 'tiny' for="cb1">Holiday and Seasonal Tours</label>
+													
+													<input type="checkbox" name="cb" id="cb11" />
+													<label class = 'tiny' for="cb11">Recommended Experience</label>
+													
+										
+                        
+												  </div>
+                                                  <div class=" group">
+                                                    <input type="checkbox" name="cb" id="cb12" />
+													<label class = 'tiny' for="cb12">Culture & Theme</label>
+                                                    <input type="checkbox" name="cb" id="cb13" />
+													<label class = 'tiny' for="cb13">Walking/Cycling & biking</label>
+                                                    <input type="checkbox" name="cb" id="cb9" />
+													<label class = 'tiny' for="cb9">Water Sports</label>
+                                                  </div>
+                                                  <div class="group">
+                                                    <input type="checkbox" name="cb" id="cb14" />
+													<label class = 'tiny' for="cb14">Shows Concerts & Sports </label>
+                                                    <input type="checkbox" name="cb" id="cb15" />
+													<label class = 'tiny' for="cb15">Outdoor Activites</label>
+													
+													<input type="checkbox" name="cb" id="cb16" />
+													<label class = 'tiny' for="cb16">Classes & Workshop</label>
+													
+										
+												  </div>
+											</div>
+                                            <button onclick="get_arr()"> Save </button>
+											<div class="next-button text-center mt-3 ml-2"> <span class="fa fa-arrow-right"></span> </div>
+										</div>
+									</div>
+									<div class="card2 ml-2">
+										<div class="row px-3 mt-2 mb-4 text-center">
+											<h2 class="col-12 text-danger"><strong>Your Travel Profile is Created !</strong></h2>
+											<div class="col-12 text-center"><img class="tick" src="https://i.imgur.com/WDI0da4.gif"></div>
+											<h3 class="col-12 mt-2"><i>...Please wait for recommendations...</i></h3>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-12">
+							<div class="row px-3">
+								<h2 class="text-muted get-bonus mt-4 mb-5">Get your <span class="text-danger" style="font-size: 2rem;">personalized</span> travel plan</h2> 
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js' />
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+        <script type="text/javascript"> 
+
+
+        function get_arr(document) {    
+            var array = []
+var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+
+for (var i = 0; i < checkboxes.length; i++) {
+  array.push(checkboxes[i].value)
+}
+console.log(array)}
+            $(document).ready(function(){
+
+                var current_fs, next_fs, previous_fs;
+
+                var $button = document.querySelector('.increment-btn');
+                var $counter = document.querySelector('.counter');
+                var $button1 = document.querySelector('.decrement-btn');
+                var $counter1 = document.querySelector('.counter1');
+                var $button2 = document.querySelector('.increment-btn1');
+                var $button3 = document.querySelector('.decrement-btn1');
+
+    
+                $button.addEventListener('click', function(){
+                    $counter.value = parseInt($counter.value) + 1; // `parseInt` converts the `value` from a string to a number
+                  }, false);
+                
+                  $button1.addEventListener('click', function(){
+                    $counter.value = parseInt($counter.value) - 1; // `parseInt` converts the `value` from a string to a number
+                  }, false);
+
+                  $button2.addEventListener('click', function(){
+                    $counter1.value = parseInt($counter1.value) + 1; // `parseInt` converts the `value` from a string to a number
+                  }, false);
+                
+                  $button3.addEventListener('click', function(){
+                    $counter1.value = parseInt($counter1.value) - 1; // `parseInt` converts the `value` from a string to a number
+                  }, false);
+                // No BACK button on first screen
+                if($(".show").hasClass("first-screen")) {
+                $(".prev").css({ 'display' : 'none' });
+                }
+                
+                // Next button
+                $(".next-button").click(function(){
+                console.log('hi')
+                current_fs = $(this).parent().parent();
+                next_fs = $(this).parent().parent().next();
+                
+                $(".prev").css({ 'display' : 'block' });
+                
+                $(current_fs).removeClass("show");
+                $(next_fs).addClass("show");
+                
+                $("#progressbar li").eq($(".card2").index(next_fs)).addClass("active");
+                
+                current_fs.animate({}, {
+                step: function() {
+                
+                current_fs.css({
+                'display': 'none',
+                'position': 'relative'
+                });
+                
+                next_fs.css({
+                'display': 'block'
+                });
+                }
+                });
+                });
+                
+                // Previous button
+                $(".prev").click(function(){
+                
+                current_fs = $(".show");
+                previous_fs = $(".show").prev();
+                
+                $(current_fs).removeClass("show");
+                $(previous_fs).addClass("show");
+                
+                $(".prev").css({ 'display' : 'block' });
+                
+                if($(".show").hasClass("first-screen")) {
+                $(".prev").css({ 'display' : 'none' });
+                }
+                
+                $("#progressbar li").eq($(".card2").index(current_fs)).removeClass("active");
+                
+                current_fs.animate({}, {
+                step: function() {
+                
+                current_fs.css({
+                'display': 'none',
+                'position': 'relative'
+                });
+                
+                previous_fs.css({
+                'display': 'block'
+                });
+                }
+                });
+                });
+                
+                });
+        </script>
+{% endblock %}
