@@ -2,6 +2,11 @@
 
 Webapp using django+sqlite+bootstrap.
 
+**Prototype for survey screen**
+
+# survey form
+<img src="https://github.com/Arpppit/tripsero/blob/UI/updated-screenshots/survey.jpeg"/>
+
 # chatroom
 <img src="https://github.com/aviraw/tripsero/blob/main/updated-screenshots/chatroom.jpeg"/>
 
@@ -17,8 +22,7 @@ Webapp using django+sqlite+bootstrap.
 # signup form
 <img src="https://github.com/aviraw/tripsero/blob/main/updated-screenshots/signup.jpeg"/>
 
-# survey form
-<img src="https://github.com/aviraw/tripsero/blob/main/updated-screenshots/survey.jpeg"/>
+
 
 # landing page
 <img src="https://github.com/aviraw/tripsero/blob/main/updated-screenshots/landingpage.jpeg"/>
