@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
 from .models import MyModel,Question
 from .forms import MyForm,Questionq
-
+import json
 # Create your views here.
 
 def dashboard(request):
@@ -13,11 +14,13 @@ def index(request):
     return render(request, "users/login.html",{"username":["A","B","C"]})
     # return HttpResponse("<h2>Hello.</h2>")
 
+@method_decorator(csrf_exempt, name='dispatch')
 def survey(request):
     if request.method == "POST":
         form = Questionq(request.POST)
         if form.is_valid():
             form.save()
+        print('ouptut is :',json.loads(request.body))
     else:
       form = Questionq()
     return render(request, "users/survey.html",{'form': form})
@@ -42,3 +45,7 @@ def questioninfo(request):
 def Ainfo(request):
     ques = Question.objects.all()
     return render (request, "users/A.html",{"que":ques})
+
+def to_ml_algo(request):
+    if request.method == 'POST':
+        pass

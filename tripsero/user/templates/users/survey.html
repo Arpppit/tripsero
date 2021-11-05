@@ -335,6 +335,219 @@ label, label::before {
     transition: 0.25s all ease;
 }
 
+h1 {
+    font-weight: bold;
+    margin: 0;
+    text-align: left;
+    color: #9e283f;
+}
+
+@keyframes spin {
+              from {
+                transform: rotate(0);
+              }
+              to{
+                transform: rotate(359deg);
+              }
+            }
+            
+            @keyframes spin3D {
+              from {
+                transform: rotate3d(.5,.5,.5, 360deg);
+              }
+              to{
+                transform: rotate3d(0deg);
+              }
+            }
+            
+            @keyframes configure-clockwise {
+              0% {
+                transform: rotate(0);
+              }
+              25% {
+                transform: rotate(90deg);
+              }
+              50% {
+                transform: rotate(180deg);
+              }
+              75% {
+                transform: rotate(270deg);
+              }
+              100% {
+                transform: rotate(360deg);
+              }
+            }
+            
+            @keyframes configure-xclockwise {
+              0% {
+                transform: rotate(45deg);
+              }
+              25% {
+                transform: rotate(-45deg);
+              }
+              50% {
+                transform: rotate(-135deg);
+              }
+              75% {
+                transform: rotate(-225deg);
+              }
+              100% {
+                transform: rotate(-315deg);
+              }
+            }
+            
+            @keyframes pulse {
+              from {
+                opacity: 1;
+                transform: scale(1);
+              }
+              to {
+                opacity: .25;
+                transform: scale(.75);
+              }
+            }
+            
+            /* GRID STYLING */
+            
+            * {
+              box-sizing: border-box;
+            }
+            
+            body {
+              min-height: 100vh;
+             
+            }
+            
+            .spinner-box {
+              width: 300px;
+              height: 300px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              background-color: transparent;
+            }
+            
+            /* SPINNING CIRCLE */
+            
+            .leo-border-1 {
+              position: absolute;
+              width: 150px;
+              height: 150px;
+              padding: 3px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              border-radius: 50%;
+              background: rgb(63,249,220);
+              background: linear-gradient(0deg, rgba(63,249,220,0.1) 33%, rgb(16, 129, 204) 100%);
+              animation: spin3D 1.8s linear 0s infinite;
+            }
+            
+            .leo-core-1 {
+              width: 100%;
+              height: 100%;
+              background-color: #37474faa;
+              border-radius: 50%;
+            }
+            
+            .leo-border-2 {
+              position: absolute;
+              width: 150px;
+              height: 150px;
+              padding: 3px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              border-radius: 50%;
+              background: rgb(251, 91, 83);
+              background: linear-gradient(0deg, rgba(251, 91, 83, 0.1) 33%, rgb(190, 51, 26) 100%);
+              animation: spin3D 2.2s linear 0s infinite;
+            }
+            
+            .leo-core-2 {
+              width: 100%;
+              height: 100%;
+              background-color: #1d2630aa;
+              border-radius: 50%;
+            }
+            li{
+  color: #2c3e50;
+  font-size: 18px;
+  line-height: 30px;
+  text-align: justify;
+  letter-spacing: 1px;
+  font-family: 'Raleway', serif;
+}
+/*SG = style grid*/
+.SG{
+  margin: 0;
+  padding: 100px 100px;
+  margin-left: 100px;
+  text-align: center;
+  display: -ms-flexbox;
+
+}
+.SG .sgLi{
+  min-width: 400px;
+  text-align: center;
+  margin: 2% .35%;
+  display: inline-flex;
+  box-shadow: 0 2px 4px rgba(0,0,0, .2);
+}
+.SG .sgLi:hover{
+  box-shadow:0 5px 10px rgba(0,0,0,.15);}
+.SG .box{
+  width: 100%;
+  height: 350px;
+  padding: 1% 2%;
+  background: rgba(221, 212, 212, 0.74);
+  min-height: 200px;
+ 
+  box-sizing: border-box;
+}
+/*Styles */
+.df{list-style-type: disc;}
+.s1{list-style-type: square;}
+.s2{list-style-type: circle;}
+.s3{list-style-type: decimal;}
+.s4{list-style-type: decimal-leading-zero;}
+.s5{list-style-type: lower-alpha;}
+.s6{list-style-type: upper-alpha;}
+.s7{list-style-type: lower-roman;}
+.s8{list-style-type: upper-roman;}
+.s9{list-style-type: lower-greek;}
+.s10{list-style-type: georgian;}
+.s11{list-style-type: hebrew;}
+.s12{list-style-type: hiragana;}
+.s13{list-style-type: hiragana-iroha;}
+.s14{list-style-type: katakana;}
+.s15{list-style-type: katakana-iroha;}
+.s16{list-style-type: cjk-ideographic;}
+.s17{list-style-image: url(//goo.gl/L3tqpe);}
+.s18{list-style: none;}
+.s18 li:before{
+  content: '';
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
+  display: inline-block;
+  background: url(//goo.gl/lcPSVD);
+  background-position: 50%;
+}
+.s19{list-style: none;}
+.s19 li:before{
+  content: '\f0a9';
+  margin-right: 15px;
+  font-family: FontAwesome;
+}
+
+/* responsive grid*/
+@media (max-width: 970px){
+  .SG .sgLi{width: 180px;}}
+@media (max-width: 425px){
+  .SG .sgLi{width: 100%;}
+}
+   
 
 </style>
 
@@ -345,6 +558,8 @@ label, label::before {
 			<div class ='main' >
 
 			</div>
+            <form action="/" method="POST" id="post-form" style='all:unset'>
+
 			<div class="card card0 border-0  sec">
 				<div class="row">
 					<div class="col-12 ">
@@ -390,8 +605,8 @@ label, label::before {
 											<div class="mb-2 col-2"> <span class="fa fa-dropbox social"></span> </div> -->
 										</div>
 										<div class="row px-3 mt-4">
-											<div class="form-group mt-1 mb-1"> <input type="text" id="email" class="form-control" required> <span class="ml-3 form-control-placeholder" for="email">Destination</span> </div>
-											<div class="next-button text-center mt-1 ml-2"> <span class="fa fa-arrow-right"></span> </div>
+											<div class="form-group mt-1 mb-1"> <input type="text" id="province" class="form-control" required> <span class="ml-3 form-control-placeholder" for="province">Destination</span> </div>
+											<div class="next-button text-center mt-1 ml-2" > <span class="fa fa-arrow-right"></span> </div>
 										</div>
 										<div class="row px-3 mt-1 mb-5">
 											<div class="custom-control custom-checkbox"> <input checked id="customCheck1" type="checkbox" class="custom-control-input"> <label for="customCheck1" class="custom-control-label">I am not sure of my destination</label> </div>
@@ -403,9 +618,9 @@ label, label::before {
 							
 											<!-- <div class="form-group mt-1 mb-1"> <input type="password" id="pwd" class="form-control" required> <label class="ml-3 form-control-placeholder" for="pwd">Password</label> </div> -->
                                             <h5  style = 'margin-top: 50px; '> Start Date </h5>
-											<input class='form-group mt-1 mb-1' type="date" data-date-inline-picker="true"  style= 'margin-right:50px; padding:30px 30px;  margin-bottom:50px !important; width:400px !important' /> 
+											<input id ='startdate' class='form-group mt-1 mb-1' type="date" data-date-inline-picker="true"  style= 'margin-right:50px; padding:30px 30px;  margin-bottom:50px !important; width:400px !important' /> 
                                             <h5  style = 'margin-top: 20px; '> End Date </h5>
-                                            <input class='form-group mt-1 mb-1' type="date" data-date-inline-picker="true"  style= 'margin-right:50px; padding:30px 30px; margin-top:10px  !important; margin-bottom:50px !important; width:400px !important' /> 
+                                            <input id = 'enddate' class='form-group mt-1 mb-1' type="date" data-date-inline-picker="true"  style= 'margin-right:50px; padding:30px 30px; margin-top:10px  !important; margin-bottom:50px !important; width:400px !important' /> 
 											<div class="next-button text-center mt-1 ml-2" style='float:right'> <span class="fa fa-arrow-right"></span> </div>
 										</div>
 										<div class="row mt-3 mb-5">
@@ -514,20 +729,40 @@ label, label::before {
 												<div class="select mb-3"> 
 													<h2> Excluding flights</h2>
 													<div class="group" >
-														<input type="radio" name="rbv" id="rbv1" />
+                                                        <h6 style= 'margin-right:15px'>Min. Budget</h6>
+														<input type="radio" name="rbv" id="rbv1"  value='100'/>
 														<label for="rbv1">$1000</label>
-														<input type="radio" name="rbv" id="rbv2" />
-														<label for="rbv2">$2500</label>
-														<input type="radio" name="rbv" id="rbv3" />
-														<label for="rbv3">$5000</label>
-														<input type="radio" name="rbv" id="rbv4" />
-														<label for="rbv4">$7500</label>
-														<input type="radio" name="rbv" id="rbv5" />
-														<label for="rbv5">$8000</label>
-														<input type="radio" name="rbv" id="rbv6" />
-														<label for="rbv6">$9900</label>
-														<input type="radio" name="rbv" id="rbv7" />
-													  </div> </div>
+														<input type="radio" name="rbv" id="rbv2" value='200'/>
+														<label for="rbv2">$2000</label>
+														<input type="radio" name="rbv" id="rbv3" value='300'/>
+														<label for="rbv3">$3000</label>
+														<input type="radio" name="rbv" id="rbv4" value='500'/>
+														<label for="rbv4">$5000</label>
+														<input type="radio" name="rbv" id="rbv5" value='600'/>
+														<label for="rbv5">$6000</label>
+														<input type="radio" name="rbv" id="rbv6" value='900'/>
+														<label for="rbv6">$9000</label>
+														
+													  </div> 
+                                                    
+                                                      <div class="group" >
+                                                          <h6 style= 'margin-right:15px'>Max. Budget</h6>
+														<input type="radio" name="rbv1" id="rbv11" value='190'/>
+														<label for="rbv11">$1900</label>
+														<input type="radio" name="rbv1" id="rbv12" value='290'/>
+														<label for="rbv12">$2900</label>
+														<input type="radio" name="rbv1" id="rbv13" value='390'/>
+														<label for="rbv13">$3900</label>
+														<input type="radio" name="rbv1" id="rbv14" value='690'/>
+														<label for="rbv14">$6900</label>
+														<input type="radio" name="rbv1" id="rbv15" value='790'/>
+														<label for="rbv15">$7900</label>
+														<input type="radio" name="rbv1" id="rbv16" value='990'/>
+														<label for="rbv16">$9900</label>
+														
+													  </div> 
+                                                    
+                                                    </div>
 											</div>
 											<div class="next-button text-center mt-3 ml-2"> <span class="fa fa-arrow-right"></span> </div>
 										</div>
@@ -539,66 +774,102 @@ label, label::before {
                                             <span> Please select atleast 5</span>
 											<div class="form-group mt-3 mb-4 " >
 												<div class="group">
-													<input type="checkbox" name="cb" id="cb10" />
+													<input type="checkbox" name="cb" id="cb10" value='Private and Custom Tours'/>
 													<label class = 'tiny'  for="cb10">Private and Custom Tours</label>
-													<input type="checkbox" name="cb" id="cb2" />
-													<label class = 'tiny'  for="cb2">Food Wine & Nightlife</label>
-													<input type="checkbox" name="cb" id="cb3" />
-													<label class = 'tiny'  for="cb3">Day Trips and Excursion</label>
+													<input type="checkbox" name="cb" id="cb2" value='Food Wine & Nightlife' />
+													<label class = 'tiny'  for="cb2" >Food Wine & Nightlife</label>
+													<input type="checkbox" name="cb" id="cb3" value='Day Trips and Excursion'/>
+													<label class = 'tiny'  for="cb3" >Day Trips and Excursion</label>
 													
 												</div>
 												<div class="group">
-													<input type="checkbox" name="cb" id="cb5" />
-													<label class = 'tiny'  for="cb5">Luxury & Special Occassion</label>
-													<input type="checkbox" name="cb" id="cb6" />
+													<input type="checkbox" name="cb" id="cb5" value='Luxury & Special Occassion'/>
+													<label class = 'tiny'  for="cb5" >Luxury & Special Occassion</label>
+													<input type="checkbox" name="cb" id="cb6" value='Air/Helicoptor & Hot air Balloon'/>
 													<label class = 'tiny'  for="cb6">Air/Helicoptor & Hot air Balloon</label>
-													<input type="checkbox" name="cb" id="cb7" />
+													<input type="checkbox" name="cb" id="cb7" value='Tours & Sightseeing'/>
 													<label class = 'tiny' for="cb7">Tours & Sightseeing</label>
-													<input type="checkbox" name="cb" id="cb8" />
+													<input type="checkbox" name="cb" id="cb8" value ='Family Friendly'/>
 													<label class ='tiny'  for="cb8">Family Friendly</label>
 													
 												</div>
 												<div class="group">
-                                                    <input type="checkbox" name="cb" id="cb4" />
+                                                    <input type="checkbox" name="cb" id="cb4" value='Sightseeing tickits '/>
 													<label class = 'tiny' for="cb4">Sightseeing tickits </label>
-                                                    <input type="checkbox" name="cb" id="cb1" />
+                                                    <input type="checkbox" name="cb" id="cb1" value ='Holiday and Seasonal Tours'/>
 													<label class = 'tiny' for="cb1">Holiday and Seasonal Tours</label>
 													
-													<input type="checkbox" name="cb" id="cb11" />
+													<input type="checkbox" name="cb" id="cb11"  value ='Recommended Experience'/>
 													<label class = 'tiny' for="cb11">Recommended Experience</label>
 													
 										
                         
 												  </div>
                                                   <div class=" group">
-                                                    <input type="checkbox" name="cb" id="cb12" />
+                                                    <input type="checkbox" name="cb" id="cb12" value ='Culture & Theme'/>
 													<label class = 'tiny' for="cb12">Culture & Theme</label>
-                                                    <input type="checkbox" name="cb" id="cb13" />
+                                                    <input type="checkbox" name="cb" id="cb13"  value='Walking/Cycling & biking'/>
 													<label class = 'tiny' for="cb13">Walking/Cycling & biking</label>
-                                                    <input type="checkbox" name="cb" id="cb9" />
+                                                    <input type="checkbox" name="cb" id="cb9" value='Water Sports'/>
 													<label class = 'tiny' for="cb9">Water Sports</label>
                                                   </div>
                                                   <div class="group">
-                                                    <input type="checkbox" name="cb" id="cb14" />
+                                                    <input type="checkbox" name="cb" id="cb14" value ='Shows Concerts & Sports' />
 													<label class = 'tiny' for="cb14">Shows Concerts & Sports </label>
-                                                    <input type="checkbox" name="cb" id="cb15" />
+                                                    <input type="checkbox" name="cb" id="cb15" value ='Outdoor Activites'/>
 													<label class = 'tiny' for="cb15">Outdoor Activites</label>
 													
-													<input type="checkbox" name="cb" id="cb16" />
+													<input type="checkbox" name="cb" id="cb16" value='Classes & Workshop'/>
 													<label class = 'tiny' for="cb16">Classes & Workshop</label>
 													
 										
 												  </div>
+                                                 
 											</div>
-                                            <button onclick="get_arr()"> Save </button>
+                                            <button id = 'preferences' onclick="get_arr()"> Select Preferences </button>
+                                            <ul id ='ratings' style= 'margin-top: 50px;'>
+
+                                            </ul>
 											<div class="next-button text-center mt-3 ml-2"> <span class="fa fa-arrow-right"></span> </div>
 										</div>
 									</div>
 									<div class="card2 ml-2">
 										<div class="row px-3 mt-2 mb-4 text-center">
-											<h2 class="col-12 text-danger"><strong>Your Travel Profile is Created !</strong></h2>
-											<div class="col-12 text-center"><img class="tick" src="https://i.imgur.com/WDI0da4.gif"></div>
-											<h3 class="col-12 mt-2"><i>...Please wait for recommendations...</i></h3>
+											<h2 class="col-12 text-danger" id ='submithead'><strong>Your Travel Profile is Created !</strong></h2>
+											<!-- <div class="col-12 text-center"><img class="tick" src="https://i.imgur.com/WDI0da4.gif"></div> -->
+                                            
+                                            <div class = 'loader' id = 'loader'>
+                                                <div class = 'leo-border-1' id='submitbtn' style= 'animation-play-state: paused;margin-left:250px;margin-top: 100px;' onclick="submit()" type='submit'> Submit</div>
+                                                <div class="spinner-box" id='loading' style="margin-left:250px; display:none; margin-top: 100px;">
+                                                  <div class="leo-border-1">
+                                                    <div class="leo-core-1"></div>
+                                                  </div> 
+                                                  <div class="leo-border-2">
+                                                    <div class="leo-core-2"></div>
+                                                  </div> 
+                                                </div>
+                                                <h3 class="col-12 mt-2" id = 'submittag'> Click Submit to Get Recommendation</h3>
+                                                </div>
+                                                <div class ='rw' style = 'display :none'>
+                                                  <ul class="SG">
+                                                   
+                                                      <li class="sgLi">
+                                                        
+                                                        <div class="box">
+                                                            <div class= 'image-cont' style='height:140px; background-image: url(https://picsum.photos/190/160); background-position: center;background-repeat: no-repeat;background-size: cover;'>
+                                                        
+                                                            </div>
+                                                        <h3>Style disc</h3>
+                                                        <ul class="df">
+                                                        <li>Friday</li>
+                                                        <li>Monday</li>
+                                                        <li>Saturday</li>
+                                                        <li>Wednesday</li>
+                                                        </ul> 
+                                                      </div>
+                                                     </li>
+                                                </div>
+										
 										</div>
 									</div>
 								</div>
@@ -612,6 +883,7 @@ label, label::before {
 					</div>
 				</div>
 			</div>
+            </form>
 		</div>
 	</div>
 </div>
@@ -619,16 +891,131 @@ label, label::before {
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
         <script type="text/javascript"> 
+            
+        function get_dest() {
+            province = document.getElementById("province").value;
+            console.log('inside the func:', province)
+            return province
+        }
 
 
-        function get_arr(document) {    
-            var array = []
-var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
 
-for (var i = 0; i < checkboxes.length; i++) {
-  array.push(checkboxes[i].value)
+function get_arr() {    
+var array = []
+categories = []
+for(let i =1; i<17;i++){
+    if(document.getElementById('cb'+ i.toString()).checked){
+        categories.push(document.getElementById('cb'+ i.toString()).value)
+    }
 }
-console.log(array)}
+let list = document.getElementById('ratings')
+list.innerHTML = ''
+let heading = document.createElement('h3')
+heading.innerText = 'Rate Your Preferences on scale of 1-5'
+list.appendChild(heading)
+let c =0
+categories.forEach((item)=>{
+  let li = document.createElement("li");
+  li.innerText = item;
+  list.appendChild(li);
+  let div = document.createElement("div");
+  c+=1
+  div.innerHTML += `<input id ='ranger${c}' type="range" min =1 max =5 > </input>`
+  list.appendChild(div);
+})
+
+
+button = document.getElementById('preferences')
+button.innerText = 'Change Preferences'
+}
+
+function submit(){
+
+var location = document.getElementById('province').value;
+var days  = new Date(document.getElementById('enddate').value).getTime()  -  new Date(document.getElementById('startdate').value).getTime() 
+days = days/(1000*3600*24)
+let low = 100
+let high = 990
+for(var i =1; i<7;i++){
+    if(document.getElementById('rbv'+ i.toString()).checked){
+        low = document.getElementById('rbv'+ i.toString()).value
+    }
+    if(document.getElementById('rbv1'+ i.toString()).checked){
+        high = document.getElementById('rbv1'+ i.toString()).value
+    }
+}
+categories = []
+for(let i =1; i<17;i++){
+    if(document.getElementById('cb'+ i.toString()).checked){
+        categories.push(document.getElementById('cb'+ i.toString()).value)
+    }
+}
+let ratings = []
+
+console.log(categories)
+for(let i =1; i< categories.length+1; i++){
+    ratings.push(parseInt(document.getElementById(`ranger${i}`).value))
+}
+cat_rating = {}
+for(let i =0; i <= categories.length; i++ ){
+    cat_rating[categories[i]] = ratings[i]
+}
+console.log('PP',cat_rating)
+let payload = {
+    'location':location,
+    'days':days,
+    'low':low,
+    'high':high,
+    'cat_rating':cat_rating
+}
+btn = document.getElementById('submitbtn')
+btn.style.display ='none'
+
+loading = document.getElementById('loading')
+loading.style.display = 'block'
+tag = document.getElementById('submittag')
+tag.innerText='... Please Wait ...(usually takes a min)'
+heading = document.getElementById('submithead')
+heading.innerHTML = '<strong> Generating Reccomendations </strong>'
+console.log(payload)
+create_post(payload)
+}
+
+$('#post-form').on('submit', function(event){
+    event.preventDefault();
+    console.log("form submitted!")  // sanity check
+    // create_post(payload);
+});
+
+function create_post(payload) {
+    console.log("create post is working!") // sanity check
+    
+    $.ajaxSetup({
+  data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+});
+    $.ajax({
+        url : "/survey/", // the endpoint
+        type : "POST", // http method
+
+        data : JSON.stringify(payload), // data sent with the post request
+
+        // handle a successful response
+        success : function(json) {
+            // $('#post-text').val(''); // remove the value from the input
+            console.log(json); // log the returned json to the console
+            console.log("success"); // another sanity check
+        },
+
+        // handle a non-successful response
+        error : function(xhr,errmsg,err) {
+            $('#results').html("<div class='alert-box alert radius' data-alert>Oops! We have encountered an error: "+errmsg+
+                " <a href='#' class='close'>&times;</a></div>"); // add the error to the dom
+            console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+        }
+    });
+};
+
+
             $(document).ready(function(){
 
                 var current_fs, next_fs, previous_fs;
@@ -724,3 +1111,4 @@ console.log(array)}
                 });
         </script>
 {% endblock %}
+
