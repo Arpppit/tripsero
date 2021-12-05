@@ -7,6 +7,7 @@ import numpy as np
 import random
 import os
 
+
 class Util(object):
 
     def read_data(self, folder):
@@ -15,8 +16,12 @@ class Util(object):
         build the recommender system
         '''
         print("Reading the data")
-        ratings = pd.read_json(folder+"attraction_reviews.json",orient='records')
-        attractions = pd.read_json(folder+"attractions.json",orient='records')
+        print(folder+"attraction_reviews.json")
+        print(os.path.isfile(folder+"attraction_reviews.json"))
+        ratings = pd.read_json(os.path.join(
+            folder, "attraction_reviews.json"), orient='records')
+        attractions = pd.read_json(os.path.join(
+            folder, "attractions.json"), orient='records')
         return ratings, attractions
 
     def clean_subset(self, ratings, num_rows):
@@ -37,10 +42,11 @@ class Util(object):
         unique_att = ratings.attraction_id.unique()
         unique_att.sort()
         att_index = [i for i in range(len(unique_att))]
-        rbm_att_df = pd.DataFrame(list(zip(att_index,unique_att)), columns =['rbm_att_id','attraction_id'])
+        rbm_att_df = pd.DataFrame(list(zip(att_index, unique_att)), columns=[
+                                  'rbm_att_id', 'attraction_id'])
 
         joined = ratings.merge(rbm_att_df, on='attraction_id')
-        joined = joined[['user_id','attraction_id','rbm_att_id','rating']]
+        joined = joined[['user_id', 'attraction_id', 'rbm_att_id', 'rating']]
         readers_group = joined.groupby('user_id')
 
         total = []
@@ -73,5 +79,5 @@ class Util(object):
         '''
         wx_b = np.dot(v_sample, W) + hb
         vbias_term = np.dot(v_sample, vb)
-        hidden_term = np.sum(np.log(1 + np.exp(wx_b)), axis = 1)
+        hidden_term = np.sum(np.log(1 + np.exp(wx_b)), axis=1)
         return -hidden_term - vbias_term
