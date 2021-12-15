@@ -11,9 +11,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -76,7 +76,7 @@ ASGI_APPLICATION = 'tripsero.routing.application'
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels.layers.InMemoryChannelLayer"
-   }
+    }
 }
 
 # Database
@@ -125,9 +125,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-
+#BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = 'C:\\tripsero\\tripsero'
+BASE_DIR = 'C:\\tripsero\\tripsero'
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR,"__shared__",]
+STATICFILES_DIRS = [os.path.join(
+    BASE_DIR, "static"), os.path.join(BASE_DIR, "__shared__")]
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 

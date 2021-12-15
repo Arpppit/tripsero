@@ -1,6 +1,7 @@
 {% extends 'users/header.html' %} {% block content %}
 
 
+
 <style>
 .card0 {
     background-color: #F5F5F5;
@@ -367,7 +368,7 @@ h1 {
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
   padding: 16px;
-  text-align: center;
+  text-align: left;
   background-color: #f1f1f1;
 }
 
@@ -597,7 +598,7 @@ h1 {
 			<div class="card card0 border-0  sec">
 				<div class="row">
 					<div class="col-12 ">
-						<div class="card card00 m-2 border-0">
+						<div class="card card00 m-2 border-0" style='box-shadow:none'>
 							<div class="row text-center justify-content-center px-3">
 								<p class="prev text-danger"><span class="fa fa-long-arrow-left"> Go Back</span></p id="back">
 							   
@@ -640,11 +641,15 @@ h1 {
 										</div>
 										<div class="row px-3 mt-4">
 											<div class="form-group mt-1 mb-1"> <input type="text" id="province" class="form-control" required> <span class="ml-3 form-control-placeholder" for="province">Destination</span> </div>
-											<div class="next-button text-center mt-1 ml-2" > <span class="fa fa-arrow-right"></span> </div>
+											{% comment %} <div class="next-button text-center mt-1 ml-2" > <span class="fa fa-arrow-right"></span> </div> {% endcomment %}
 										</div>
 										<div class="row px-3 mt-1 mb-5">
-											<div class="custom-control custom-checkbox"> <input checked id="customCheck1" type="checkbox" class="custom-control-input"> <label for="customCheck1" class="custom-control-label">I am not sure of my destination</label> </div>
-										</div>
+											<div class="custom-control custom-checkbox" style = 'padding-top:10px; padding-bottom:50px'> <input checked id="customCheck1" type="checkbox" class="custom-control-input"> <label for="customCheck1" class="custom-control-label">I am not sure of my destination</label> </div>               
+      
+                    </div>
+                    <div class = 'row' style = 'display:flex;  align-content:right; justify-content:right'> 
+                      <div class="next-button text-center mt-1 ml-2" style="margin-top:20px;  margin-right:20px "> <span class="fa fa-arrow-right"></span> </div>
+                     </div>
 									</div>
 									<div class="card2 ml-2">
 										<div class="row px-3 mt-3">
@@ -655,8 +660,11 @@ h1 {
 											<input id ='startdate' class='form-group mt-1 mb-1' type="date" data-date-inline-picker="true"  style= 'margin-right:50px; padding:30px 30px;  margin-bottom:50px !important; width:400px !important' /> 
                                             <h5  style = 'margin-top: 20px; '> End Date </h5>
                                             <input id = 'enddate' class='form-group mt-1 mb-1' type="date" data-date-inline-picker="true"  style= 'margin-right:50px; padding:30px 30px; margin-top:10px  !important; margin-bottom:50px !important; width:400px !important' /> 
-											<div class="next-button text-center mt-1 ml-2" style='float:right'> <span class="fa fa-arrow-right"></span> </div>
+											{% comment %} <div class="next-button text-center mt-1 ml-2" style='float:right'> <span class="fa fa-arrow-right"></span> </div> {% endcomment %}
 										</div>
+                    <div class = 'row' style = 'display:flex;  align-content:right; justify-content:right'> 
+                      <div class="next-button text-center mt-1 ml-2" style="margin-top:20px;  margin-right:20px "> <span class="fa fa-arrow-right"></span> </div>
+                     </div>
 										<div class="row mt-3 mb-5">
 											<div class="col-12">
 												<p class="mb-1"></p>
@@ -669,22 +677,36 @@ h1 {
 											<h1>Is there a special occasion for your visit?</h1>
 											<div class="form-group mt-3 mb-4 " >
 												<div class="group">
+                          <div class='col-md-4'>
 													<input type="radio" name="rb" id="rb1" />
 													<label for="rb1">Friends Trip</label>
+                          </div>
+                          <div class='col-md-4'>
 													<input type="radio" name="rb" id="rb2" />
 													<label for="rb2">Road Trip</label>
+                          </div>
+                          <div class='col-md-4'>
 													<input type="radio" name="rb" id="rb3" />
 													<label for="rb3">Solo Trip</label>
+                          </div>
+                          <div class='col-md-4'>
 													<input type="radio" name="rb" id="rb4" />
 													<label for="rb4">Cruise</label>
+                          </div>
 												  </div>
 												  <div class="group">
+                            <div class='col-md-4'>
 													<input type="radio" name="rb" id="rb5" />
 													<label for="rb5">Festival</label>
+                          </div>
+                          <div class='col-md-4'>
 													<input type="radio" name="rb" id="rb6" />
 													<label for="rb6">Anniversary</label>
+                          </div>
+                          <div class='col-md-4'>
 													<input type="radio" name="rb" id="rb7" />
 													<label for="rb7">Honeymoon</label>
+                          </div>
 													<!-- <input type="radio" name="rb" id="rb8" />
 													<label for="rb8">Family Vacation</label>
 													<input type="radio" name="rb" id="rb9" />
@@ -692,8 +714,11 @@ h1 {
 												  </div>
 												
 											</div>
-											<div class="next-button text-center mt-3 ml-2"> <span class="fa fa-arrow-right"></span> </div>
+											{% comment %} <div class="next-button text-center mt-3 ml-2"> <span class="fa fa-arrow-right"></span> </div> {% endcomment %}
 										</div>
+                    <div class = 'row' style = 'display:flex;  align-content:right; justify-content:right'> 
+                      <div class="next-button text-center mt-1 ml-2" style="margin-top:20px;  margin-right:20px "> <span class="fa fa-arrow-right"></span> </div>
+                     </div>
 									</div>
 									<div class="card2 ml-2">
 										<div class="row px-3 mt-3">
@@ -752,8 +777,12 @@ h1 {
 												</div>  
 												</div>
 											</div>
-											<div class="next-button text-center mt-3 ml-2"> <span class="fa fa-arrow-right"></span> </div>
+                      
+											{% comment %} <div class="next-button text-center mt-3 ml-2"> <span class="fa fa-arrow-right"></span> </div> {% endcomment %}
 										</div>
+                    <div class = 'row' style = 'display:flex;  align-content:right; justify-content:right'> 
+                      <div class="next-button text-center mt-1 ml-2" style="margin-top:20px;  margin-right:20px "> <span class="fa fa-arrow-right"></span> </div>
+                     </div>
 									</div>
 									<div class="card2 ml-2">
 										<div class="row px-3 mt-3">
@@ -798,74 +827,116 @@ h1 {
                                                     
                                                     </div>
 											</div>
-											<div class="next-button text-center mt-3 ml-2"> <span class="fa fa-arrow-right"></span> </div>
+											{% comment %} <div class="next-button text-center mt-3 ml-2"> <span class="fa fa-arrow-right"></span> </div> {% endcomment %}
 										</div>
+                    <div class = 'row' style = 'display:flex;  align-content:right; justify-content:right'> 
+                      <div class="next-button text-center mt-1 ml-2" style="margin-top:20px;  margin-right:20px "> <span class="fa fa-arrow-right"></span> </div>
+                     </div>
 									</div>
 									<div class="card2 ml-2">
 										<div class="row px-3 mt-3">
 											<h1>What do you want to do there?</h1>
 
                                             <span> Please select atleast 5</span>
-											<div class="form-group mt-3 mb-4 " >
+											<div class="form-group mt-3 mb-4 " style=' margin-left:75px'>
 												<div class="group">
+                          
+                          <div class = 'col-md-4' style = 'padding-right:25px'>
 													<input type="checkbox" name="cb" id="cb10" value='Private and Custom Tours'/>
 													<label class = 'tiny'  for="cb10">Private and Custom Tours</label>
+                          </div>
+                          <div class = 'col-md-4' style = 'padding-right:25px'>
 													<input type="checkbox" name="cb" id="cb2" value='Food Wine & Nightlife' />
 													<label class = 'tiny'  for="cb2" >Food Wine & Nightlife</label>
+                          </div>
+                          <div class = 'col-md-4' style = 'padding-right:25px'>
 													<input type="checkbox" name="cb" id="cb3" value='Day Trips and Excursion'/>
 													<label class = 'tiny'  for="cb3" >Day Trips and Excursion</label>
+                          </div>
 													
 												</div>
+												
 												<div class="group">
-													<input type="checkbox" name="cb" id="cb5" value='Luxury & Special Occassion'/>
-													<label class = 'tiny'  for="cb5" >Luxury & Special Occassion</label>
-													<input type="checkbox" name="cb" id="cb6" value='Air/Helicoptor & Hot air Balloon'/>
-													<label class = 'tiny'  for="cb6">Air/Helicoptor & Hot air Balloon</label>
-													<input type="checkbox" name="cb" id="cb7" value='Tours & Sightseeing'/>
-													<label class = 'tiny' for="cb7">Tours & Sightseeing</label>
-													<input type="checkbox" name="cb" id="cb8" value ='Family Friendly'/>
-													<label class ='tiny'  for="cb8">Family Friendly</label>
-													
-												</div>
-												<div class="group">
+
+                          <div class='col-md-4' style = 'padding-right:25px'>
                                                     <input type="checkbox" name="cb" id="cb4" value='Sightseeing tickits '/>
 													<label class = 'tiny' for="cb4">Sightseeing tickits </label>
+                          </div>
+                          <div class='col-md-4' style = 'padding-right:25px'>
                                                     <input type="checkbox" name="cb" id="cb1" value ='Holiday and Seasonal Tours'/>
 													<label class = 'tiny' for="cb1">Holiday and Seasonal Tours</label>
+                          </div>
+                          <div class='col-md-4' style = 'padding-right:25px'>
 													
 													<input type="checkbox" name="cb" id="cb11"  value ='Recommended Experience'/>
 													<label class = 'tiny' for="cb11">Recommended Experience</label>
+                          </div>
 													
 										
                         
 												  </div>
                                                   <div class=" group">
+
+                                                    <div class = 'col-md-4' style = 'padding-right:25px'>
                                                     <input type="checkbox" name="cb" id="cb12" value ='Culture & Theme'/>
 													<label class = 'tiny' for="cb12">Culture & Theme</label>
+                          </div>
+                          <div class = 'col-md-4' style = 'padding-right:25px'>
                                                     <input type="checkbox" name="cb" id="cb13"  value='Walking/Cycling & biking'/>
 													<label class = 'tiny' for="cb13">Walking/Cycling & biking</label>
+                          </div>
+                          <div class = 'col-md-4' style = 'padding-right:25px'>
                                                     <input type="checkbox" name="cb" id="cb9" value='Water Sports'/>
 													<label class = 'tiny' for="cb9">Water Sports</label>
+                          </div>
                                                   </div>
                                                   <div class="group">
+                                                    <div class = 'col-md-4' style = 'padding-right:25px'>
                                                     <input type="checkbox" name="cb" id="cb14" value ='Shows Concerts & Sports' />
 													<label class = 'tiny' for="cb14">Shows Concerts & Sports </label>
+                          </div>
+                          <div class = 'col-md-4' style = 'padding-right:25px'>
                                                     <input type="checkbox" name="cb" id="cb15" value ='Outdoor Activites'/>
 													<label class = 'tiny' for="cb15">Outdoor Activites</label>
+                          </div>
+                          <div class = 'col-md-4' style = 'padding-right:25px'>
 													
 													<input type="checkbox" name="cb" id="cb16" value='Classes & Workshop'/>
 													<label class = 'tiny' for="cb16">Classes & Workshop</label>
+                          </div>
 													
 										
 												  </div>
+                          <div class="group">
+                            <div class = 'col-md-4' style = 'padding-right:25px' >
+                            <input type="checkbox" name="cb" id="cb5" value='Luxury & Special Occassion'/>
+                            <label class = 'tiny'  for="cb5" >Luxury & Special Occassion</label>
+                            </div>
+                            <div class = 'col-md-4' style = 'padding-right:25px' >
+                            <input type="checkbox" name="cb" id="cb6" value='Air/Helicoptor & Hot air Balloon'/>
+                            <label class = 'tiny'  for="cb6">Air/Helicoptor & Hot air Balloon</label>
+                          </div>
+                            <div class = 'col-md-4' style = 'padding-right:25px' >
+                            <input type="checkbox" name="cb" id="cb7" value='Tours & Sightseeing'/>
+                            <label class = 'tiny' for="cb7">Tours & Sightseeing</label>
+                          </div>
+                            <div class = 'col-md-4' style = 'padding-right:25px' >
+                            <input type="checkbox" name="cb" id="cb8" value ='Family Friendly'/>
+                            <label class ='tiny'  for="cb8">Family Friendly</label>
+                          </div>
+                          </div>
                                                  
 											</div>
                                             <button id = 'preferences' onclick="get_arr()"> Select Preferences </button>
                                             <ul id ='ratings' style= 'margin-top: 50px;'>
 
                                             </ul>
-											<div class="next-button text-center mt-3 ml-2"> <span class="fa fa-arrow-right"></span> </div>
+											{% comment %} <div class="next-button text-center mt-3 ml-2"> <span class="fa fa-arrow-right"></span> </div> {% endcomment %}
+                      
 										</div>
+                    <div class = 'row' style = 'display:flex;  align-content:right; justify-content:right'> 
+                      <div class="next-button text-center mt-1 ml-2" style="margin-top:20px;  margin-right:20px "> <span class="fa fa-arrow-right"></span> </div>
+                     </div>
 									</div>
 									<div class="card2 ml-2">
 										<div class="row px-3 mt-2 mb-4 text-center">
@@ -1084,7 +1155,11 @@ function create_post(payload) {
       // </div>
             row = document.createElement('div')
             let ht = '<h1> Your Personalized Recommendations </h1>'
+            try{
             for(let day =0; day < days;day++){
+              if(json['content']['category'].length ===0){
+                break
+              }
               if (json['content']['location'][day].length ===4){
               arr1 = json['content']['location'][day][0].slice(1,json['content']['location'][day][0].length-1).split(',')
               arr2 = json['content']['location'][day][1].slice(1,json['content']['location'][day][0].length-1).split(',')
@@ -1093,7 +1168,7 @@ function create_post(payload) {
               console.log(arr1[0],arr1[1])
               }
               ht += '<div class="card_row">'
-                // ht +=  `<h2 class="col-12 text-danger" id ='submithead' style='padding-top:50px; padding-bottom:20px'><strong> Day ${day +1}</strong></h2>`
+                 ht +=  `<h2 class="col-12 text-danger" id ='submithead' style='padding-top:50px; padding-bottom:20px'><strong> Day ${day +1}</strong></h2>`
               ht += '<div class="card_column">'
               ht+=  `<div class="card"> <ul>
                 <img src = ${json['content']['image'][day][0]} alt ='' />
@@ -1144,6 +1219,10 @@ function create_post(payload) {
                </ul> </div></div>`
               ht+= '</div>'
             }
+          }
+          catch(err){
+            console.log(err.message)
+          }
             
             //res.innerHTML  = `<div class="card_row"><div class="card_column"><div class="card">RUPA</div></div>`
             res.innerHTML = ht
