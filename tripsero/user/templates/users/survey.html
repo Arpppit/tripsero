@@ -645,7 +645,7 @@ h1 {
 											{% comment %} <div class="next-button text-center mt-1 ml-2" > <span class="fa fa-arrow-right"></span> </div> {% endcomment %}
 										</div>
 										<div class="row px-3 mt-1 mb-5">
-											<div class="custom-control custom-checkbox" style = 'padding-top:10px; padding-bottom:50px'> <input checked id="customCheck1" type="checkbox" class="custom-control-input"> <label for="customCheck1" class="custom-control-label">I am not sure of my destination</label> </div>               
+											<div class="custom-control custom-checkbox" style = 'padding-top:10px; padding-bottom:50px'> <input checked id="customCheck1" type="checkbox" class="custom-control-input" id='notsure'> <label for="customCheck1" class="custom-control-label">I am not sure of my destination</label> </div>               
       
                     </div>
                     <div class = 'row' style = 'display:flex;  align-content:right; justify-content:right'> 
@@ -1055,6 +1055,10 @@ button.innerText = 'Change Preferences'
 function submit(){
 
 var location = document.getElementById('province').value;
+var nots=  document.getElementById('notsure').value
+if (nots){
+  location = 'british_columbia'
+}
 var days  = new Date(document.getElementById('enddate').value).getTime()  -  new Date(document.getElementById('startdate').value).getTime() 
 days = days/(1000*3600*24)
 let low = 100
