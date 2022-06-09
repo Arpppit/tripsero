@@ -1,28 +1,27 @@
-# tripsero-squadc
+# tripsero
 
 Webapp using django+sqlite+bootstrap.
 
-**Prototype for survey screen**
+### To run this app use
 
-# survey form
-<img src="https://github.com/Arpppit/tripsero/blob/UI/updated-screenshots/survey.jpeg"/>
+`pip install -r requirements.txt`
+`cd tripsero`
+`python manage.py runserver`
 
-# chatroom
-<img src="https://github.com/aviraw/tripsero/blob/main/updated-screenshots/chatroom.jpeg"/>
-
-# dashboard
-<img src="https://github.com/aviraw/tripsero/blob/main/updated-screenshots/dashboard.jpeg"/>
-
-# details page
-<img src="https://github.com/aviraw/tripsero/blob/main/updated-screenshots/details.jpeg"/>
-
-# lobby page
-<img src="https://github.com/aviraw/tripsero/blob/main/updated-screenshots/lobby.jpeg"/>
+**Screenshots from app**
 
 # signup form
+
 <img src="https://github.com/aviraw/tripsero/blob/main/updated-screenshots/signup.jpeg"/>
 
+# survey form
 
+<img src="https://github.com/Arpppit/tripsero/blob/UI/updated-screenshots/survey.jpeg"/>
+<img src="https://github.com/aviraw/tripsero/blob/main/updated-screenshots/details.jpeg"/>
+<img src="https://github.com/aviraw/tripsero/blob/main/updated-screenshots/details.jpeg"/>
 
-# landing page
-<img src="https://github.com/aviraw/tripsero/blob/main/updated-screenshots/landingpage.jpeg"/>
+### and so on ...
+
+# results page
+
+<img src="https://github.com/aviraw/tripsero/blob/main/updated-screenshots/details.jpeg"/>
